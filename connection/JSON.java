@@ -5,6 +5,12 @@ import java.util.HashMap;
 import java.util.StringTokenizer;
 
 public class JSON {
+    /**
+    * Parses a json string into a HashMap.
+    *
+    * @param jsonString The JSON string to be parsed.
+    * @return           A HashMap containing relevant anime data.
+    */
     public static HashMap<String, String> parse(String jsonString) {
         HashMap<String, String> map = new HashMap<String, String>();
         Pattern p = Pattern.compile ("\"[a-zA-Z_]+\":(\"([^,])+\"|[0-9]+)");

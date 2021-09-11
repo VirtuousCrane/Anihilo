@@ -14,7 +14,7 @@ public class Kitsu {
     /**
     * Gets the data of an anime from Kitsu
     *
-    * @return  HashMap<String, String>  The anime data
+    * @return  A HashMap constaining the Anime's data.
     */
     public HashMap<String, String> get_anime_data(int id) {
         String animeDataUrl = baseUrl + "edge/anime/" + id;

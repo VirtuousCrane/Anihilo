@@ -27,10 +27,18 @@ public class Anime extends Kitsu {
     int kitsuId;
     double averageRating;
 
+    /**
+    * The defuault constructor. Gets a random Anime's data
+    */
     public Anime () {
         this (rand.nextInt(1000));
     }
 
+    /**
+    * Gets an anime's data.
+    *
+    * @param rand_id The Anime's id.
+    */
     public Anime (int rand_id) {
         map = get_anime_data (rand_id);
         kitsuId = Integer.parseInt (map.get ("id"));
@@ -104,18 +112,44 @@ public class Anime extends Kitsu {
         return large_img_link;
     }
 
+    /**
+    * Downloads the anime's poster image (small).
+    *
+    * @param dest The destination folder
+    * @return     A boolean signifying whether the download succeeded.
+    */
     public boolean download_small_img(String dest) {
         return download_img (0, dest);
     }
 
+    /**
+    * Downloads the anime's poster image (medium).
+    *
+    * @param dest The destination folder
+    * @return     A boolean signifying whether the download succeeded.
+    */
     public boolean download_medium_img(String dest) {
         return download_img (1, dest);
     }
 
+    /**
+    * Downloads the anime's poster image (large).
+    *
+    * @param dest The destination folder
+    * @return     A boolean signifying whether the download succeeded.
+    */
     public boolean download_large_img(String dest) {
         return download_img (2, dest);
     }
 
+    /**
+    * The backend implementation of downnload_[size]_image.
+    * Cannot be accessed from outside.
+    *
+    * @param size The size of the image, signified by 0, 1, or 2.
+    * @param dest The destination folder.
+    * @return     A boolean signifying whether the download succeeded.
+    */
     protected boolean download_img(int size, String dest) {
         URL url = null;
 
