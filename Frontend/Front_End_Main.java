@@ -45,8 +45,8 @@ public class Front_End_Main {
         border.setBounds(0, 350, 600, 150);
         border.setBackground(Color.gray);
 
-        ImageIcon left_pic = new ImageIcon("Unknown.jpg"); // setImage
-        ImageIcon right_pic = new ImageIcon("Unknown.jpg");
+        ImageIcon left_pic = new ImageIcon("Frontend/Unknown.jpg"); // setImage
+        ImageIcon right_pic = new ImageIcon("Frontend/Unknown.jpg");
         JButton left_button = new JButton(left_pic);
         JButton right_button = new JButton(right_pic);
         left_button.setBounds(116, 80, 130, 180); // x-axis, y-axis, width, height
