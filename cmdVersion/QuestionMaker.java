@@ -1,9 +1,123 @@
 package cmdVersion;
-
-
+import connection.Anime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Random;
 
 public class QuestionMaker {
-    
+    ArrayList<Anime> animeList = new ArrayList<Anime>();
+    ArrayList<Integer> randomNumberList = new ArrayList<Integer>();
+
+    final int MAX_RANDOM_NUMBER_SIZE = 1000;
+    final int MIN_RANDOM_NUMBER_SIZE = 100;
+    final int MAX_ANIME_SIZE = 20;
+    final int MIN_ANIME_SIZE = 10;
+
+    final double EASY_POSITIONAL_DIFFERENCE = 0.4;
+    final double MEDIUM_POSITIONAL_DIFFERENCE = 0.2;
+    final double HARD_POSITIONAL_DIFFERENCE = 0.1;
+    final double DEATH_POSITIONAL_DIFFERENCE = 0.01;
+
+    // START CONTRUCTOR METHOD
+    // Generate Question with random difficulty and type
+//    public Question makeQuestion(){
+//
+//    }
+//
+//    // Generate Question() with determined difficulty and random type
+//    public Question makeQuestion(String difficulty){
+//
+//    }
+//
+//    // Generate Question() with determined difficulty and type
+//    public Question makeQuestion(String difficulty, String type){
+//        if(difficulty.equalsIgnoreCase("Easy")){
+//            return this.internalMakeQuestion(EASY_POSITIONAL_DIFFERENCE,)
+//        }
+//
+//    }
+//    // END CONSTRUCTOR METHOD
+//
 
 
+    // Algorithm for generating question based on difficulty
+    // Difficulty is based on the positionalDifference of the list
+    // For example if we have a list of 100 anime listed by rank
+    // We pick a random number then by random chance move forward/backward by positionalDifference% of the list
+    // The two anime will then be selected for making question object
+
+    public Question internalMakeQuestion(double positionalDifference, String difficulty, String type, String prompt){
+
+        Comparator<Anime> comparator = AnimeComparatorFactory.getComparator(type);
+        this.sortBy(comparator);
+
+
+        Random random = new Random();
+        int randomIndexA = random.nextInt(animeList.size());
+        int indexDifference = (int)Math.ceil(animeList.size() * positionalDifference);
+        int randomIndexB = randomIndexA;
+
+        // Bounds checking and calculate randomIndexB
+        if((randomIndexB + indexDifference) > animeList.size()-1) {
+            randomIndexB -= indexDifference;
+        } else {
+            randomIndexB += indexDifference;
+        }
+
+        // Randomize the anime order
+        Anime anime1;
+        Anime anime2;
+        if(random.nextInt(2)==1){
+            anime1 = animeList.get(randomIndexA);
+            anime2 = animeList.get(randomIndexB);
+        } else {
+            anime1 = animeList.get(randomIndexB);
+            anime2 = animeList.get(randomIndexA);
+        }
+
+        animeList.remove(anime1);
+        animeList.remove(anime2);
+
+        // Calculate answer
+        int answer;
+        int comparatorInt = comparator.compare(anime1,anime2);
+        if(comparatorInt > 0){ // Anime1 which is left is selected to be the answer
+            answer = -1;
+        } else if (comparatorInt == 0){
+            answer = 0;
+        } else {
+            answer = 1;
+        }
+
+        return new Question(anime1,anime2,difficulty,prompt,answer);
+    }
+
+    // Instantiate MAX_RANDOM_NUMBER_SIZE numbers for randomNumberList
+    public void generateRandomNumberList(){
+        for(int i = 1; i < MAX_RANDOM_NUMBER_SIZE; i++){
+            this.randomNumberList.add(i);
+        }
+        Collections.shuffle(this.randomNumberList);
+    }
+
+    // Get a random number from the list so when choosing an anime it don't repeat till the player practically did 900 which is near impossible to reach
+    // "Pop" from beginning of list
+    public int getRandomNumberFromList(){
+        return this.randomNumberList.remove(0);
+    }
+
+    // Sort the animeList
+    public void sortBy(Comparator<Anime> inComparator){
+        animeList.sort(inComparator);
+    }
+
+
+    public void fillAnimeList(){
+        int amountOfAnimeToAdd = this.MAX_ANIME_SIZE - this.animeList.size();
+        for(int i = 0; i < amountOfAnimeToAdd; i++){
+            int randNumFromList = getRandomNumberFromList();
+            this.animeList.add(new Anime(randNumFromList));
+        }
+    }
 }

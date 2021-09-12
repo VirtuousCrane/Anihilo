@@ -14,7 +14,7 @@ public class Question {
         this.rightAnime = rightAnime;
         this.difficulty = difficulty;
         this.prompt = prompt;
-        this.answer = answer;
+        this.answer = answer; // -1 means left, 0 means both answer are correct, 1 means right
     }
 
     public Anime getLeftAnime() {
