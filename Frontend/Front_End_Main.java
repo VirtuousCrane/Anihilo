@@ -21,6 +21,7 @@ public class Front_End_Main {
         main_page.setTitle("Higher or Lower");
 
         // * Create Border
+        // * Panel for score
         JPanel score_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 10)); // FlowLayout(alignemnt, hori-gap,
                                                                                      // verti-gap)
         score_border.setBounds(0, 350, 200, 150); // (Coordinate(x-axis, y-axis, length, height))
@@ -37,9 +38,21 @@ public class Front_End_Main {
         score_border.add(score_num);
         main_page.add(score_border);
 
-        JPanel guess_border = new JPanel();
+        // * Panel for Guess
+        JPanel guess_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 10));
         guess_border.setBounds(200, 350, 200, 150);
         guess_border.setBorder(new MatteBorder(1, 0, 1, 0, Color.black));
+        String guess_test = "1";
+        JLabel guess = new JLabel();
+        guess.setText("Guess");
+        guess.setFont(guess.getFont().deriveFont(25f));
+        JLabel guess_num = new JLabel();
+        guess_num.setText(guess_test);
+        guess_num.setFont(guess_num.getFont().deriveFont(25f));
+
+        guess_border.add(guess);
+        guess_border.add(guess_num);
+        main_page.add(guess_border);
 
         JPanel accuracy_border = new JPanel();
         accuracy_border.setBounds(400, 350, 200, 150);
