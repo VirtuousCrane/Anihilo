@@ -1,11 +1,11 @@
 import java.awt.Color;
+import java.awt.FlowLayout;
 import javax.swing.border.MatteBorder; // extra modify for border
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JLabel;
-import java.awt.FlowLayout;
+import javax.swing.JPanel;
 
 public class Front_End_Main {
 
@@ -26,6 +26,7 @@ public class Front_End_Main {
                                                                                      // verti-gap)
         score_border.setBounds(0, 350, 200, 150); // (Coordinate(x-axis, y-axis, length, height))
         score_border.setBorder(new MatteBorder(1, 1, 1, 1, Color.black)); // MatteBorder(top, left, down, right, Color)
+        // wait for tae input in score_test
         String score_test = "10000";
         JLabel score = new JLabel();
         score.setText("Score");
@@ -42,6 +43,7 @@ public class Front_End_Main {
         JPanel guess_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 10));
         guess_border.setBounds(200, 350, 200, 150);
         guess_border.setBorder(new MatteBorder(1, 0, 1, 0, Color.black));
+        // wait for tae input in guess_test
         String guess_test = "1";
         JLabel guess = new JLabel();
         guess.setText("Guess");
@@ -54,11 +56,21 @@ public class Front_End_Main {
         guess_border.add(guess_num);
         main_page.add(guess_border);
 
-        JPanel accuracy_border = new JPanel();
+        // * Panel for accuracy
+        JPanel accuracy_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 10));
         accuracy_border.setBounds(400, 350, 200, 150);
         accuracy_border.setBorder(new MatteBorder(1, 1, 1, 1, Color.black));
+        // wait for tae input in accuracy_test
+        String accuracy_test = "1";
+        JLabel accuracy = new JLabel();
+        accuracy.setText("Accuracy");
+        accuracy.setFont(accuracy.getFont().deriveFont(25f));
+        JLabel accuracy_num = new JLabel();
+        accuracy_num.setText(accuracy_test);
+        accuracy_num.setFont(accuracy_num.getFont().deriveFont(25f));
 
-        main_page.add(guess_border);
+        accuracy_border.add(accuracy);
+        accuracy_border.add(accuracy_num);
         main_page.add(accuracy_border);
 
         // * Create a button
