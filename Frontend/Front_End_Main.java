@@ -4,8 +4,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.Box.Filler;
+import javax.swing.JLabel;
+import java.awt.FlowLayout;
 
 public class Front_End_Main {
 
@@ -21,18 +21,30 @@ public class Front_End_Main {
         main_page.setTitle("Higher or Lower");
 
         // * Create Border
-        JPanel score_border = new JPanel();
+        JPanel score_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 10)); // FlowLayout(alignemnt, hori-gap,
+                                                                                     // verti-gap)
         score_border.setBounds(0, 350, 200, 150); // (Coordinate(x-axis, y-axis, length, height))
         score_border.setBorder(new MatteBorder(1, 1, 1, 1, Color.black)); // MatteBorder(top, left, down, right, Color)
-        JTextArea score = new JTextArea();
+        String score_test = "10000";
+        JLabel score = new JLabel();
+        score.setText("Score");
+        score.setFont(score.getFont().deriveFont(25f));
+        JLabel score_num = new JLabel();
+        score_num.setText(score_test);
+        score_num.setFont(score_num.getFont().deriveFont(25f));
+
+        score_border.add(score);
+        score_border.add(score_num);
+        main_page.add(score_border);
+
         JPanel guess_border = new JPanel();
         guess_border.setBounds(200, 350, 200, 150);
         guess_border.setBorder(new MatteBorder(1, 0, 1, 0, Color.black));
+
         JPanel accuracy_border = new JPanel();
         accuracy_border.setBounds(400, 350, 200, 150);
         accuracy_border.setBorder(new MatteBorder(1, 1, 1, 1, Color.black));
 
-        main_page.add(score_border);
         main_page.add(guess_border);
         main_page.add(accuracy_border);
 
