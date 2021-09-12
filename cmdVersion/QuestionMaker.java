@@ -19,6 +19,7 @@ public class QuestionMaker {
     final double HARD_POSITIONAL_DIFFERENCE = 0.1;
     final double DEATH_POSITIONAL_DIFFERENCE = 0.01;
 
+
     // START CONTRUCTOR METHOD
     // Generate Question with random difficulty and type
 //    public Question makeQuestion(){
@@ -51,7 +52,6 @@ public class QuestionMaker {
 
         Comparator<Anime> comparator = AnimeComparatorFactory.getComparator(type);
         this.sortBy(comparator);
-
 
         Random random = new Random();
         int randomIndexA = random.nextInt(animeList.size());
@@ -120,4 +120,6 @@ public class QuestionMaker {
             this.animeList.add(new Anime(randNumFromList));
         }
     }
+
+
 }
