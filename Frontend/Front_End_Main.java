@@ -96,7 +96,8 @@ public class Front_End_Main {
 
         // * Create a Message Using JTextPane
 
-        main_page.setVisible(true); // make frame visible
+        // * make JFrame visible (need to be put last)
+        main_page.setVisible(true);
 
     }
 }
