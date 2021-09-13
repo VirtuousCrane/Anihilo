@@ -28,37 +28,57 @@ public class Anime extends Kitsu {
     double averageRating;
 
     /**
-     * The defuault constructor. Gets a random Anime's data
-     */
+    * The defuault constructor. Gets a random Anime's data
+    */
     public Anime () {
-        this (rand.nextInt(1000));
-        System.out.println("Anime class is created with kitsuID of: " + this.get_kitsu_id());
+        this (rand.nextInt(3000), false);
     }
 
     /**
-     * Gets an anime's data.
-     *
-     * @param rand_id The Anime's id.
-     */
-    public Anime (int rand_id) {
-        map = get_anime_data(rand_id);
-        kitsuId = Integer.parseInt (map.get ("id"));
+    * Gets a random anime's data and dictates whether to skip the anime upon failure
+    *
+    * @param skip Dictates whether to skip the anime upon failure or get a new id
+    */
+    public Anime (boolean skip) {
+        this (rand.nextInt(3000), skip);
+    }
 
-        name = map.get ("en_jp");
-        en_name = map.get ("en");
-        jp_name = map.get ("ja_jp");
+    /**
+    * Gets an anime's data.
+    *
+    * @param rand_id The Anime's id.
+    * @param skip    Dictates whether to skip the anime upon failure or get a new id
+    */
+    public Anime (int rand_id, boolean skip) {
+        int rand_num = rand_id;
+        while (true) {
+            try {
+                map = get_anime_data (rand_num);
+                kitsuId = Integer.parseInt (map.get ("id"));
 
-        ratingRank = Integer.parseInt (map.get ("ratingRank"));
-        popularityRank = Integer.parseInt (map.get ("popularityRank"));
-        averageRating = Double.parseDouble (map.get ("averageRating"));
+                name = map.get ("en_jp");
+                en_name = map.get ("en");
+                jp_name = map.get ("ja_jp");
 
-        episode_no = Integer.parseInt (map.get ("episodeCount"));
-        start_date = map.get ("startDate");
-        end_date = map.get ("endDate");
+                ratingRank = Integer.parseInt (map.get ("ratingRank"));
+                popularityRank = Integer.parseInt (map.get ("popularityRank"));
+                averageRating = Double.parseDouble (map.get ("averageRating"));
 
-        small_img_link = map.get ("tiny");
-        medium_img_link = map.get ("medium");
-        large_img_link = map.get ("large");
+                episode_no = Integer.parseInt (map.get ("episodeCount"));
+                start_date = map.get ("startDate");
+                end_date = map.get ("endDate");
+
+                small_img_link = map.get ("tiny");
+                medium_img_link = map.get ("medium");
+                large_img_link = map.get ("large");
+                break;
+            } catch (Exception e) {
+                System.out.println ("Error, trying again");
+                if (!skip) {
+                    rand_num = rand.nextInt(3000);
+                }
+            }
+        }
     }
 
     public int get_kitsu_id() {
@@ -114,43 +134,43 @@ public class Anime extends Kitsu {
     }
 
     /**
-     * Downloads the anime's poster image (small).
-     *
-     * @param dest The destination folder
-     * @return     A boolean signifying whether the download succeeded.
-     */
+    * Downloads the anime's poster image (small).
+    *
+    * @param dest The destination folder
+    * @return     A boolean signifying whether the download succeeded.
+    */
     public boolean download_small_img(String dest) {
         return download_img (0, dest);
     }
 
     /**
-     * Downloads the anime's poster image (medium).
-     *
-     * @param dest The destination folder
-     * @return     A boolean signifying whether the download succeeded.
-     */
+    * Downloads the anime's poster image (medium).
+    *
+    * @param dest The destination folder
+    * @return     A boolean signifying whether the download succeeded.
+    */
     public boolean download_medium_img(String dest) {
         return download_img (1, dest);
     }
 
     /**
-     * Downloads the anime's poster image (large).
-     *
-     * @param dest The destination folder
-     * @return     A boolean signifying whether the download succeeded.
-     */
+    * Downloads the anime's poster image (large).
+    *
+    * @param dest The destination folder
+    * @return     A boolean signifying whether the download succeeded.
+    */
     public boolean download_large_img(String dest) {
         return download_img (2, dest);
     }
 
     /**
-     * The backend implementation of downnload_[size]_image.
-     * Cannot be accessed from outside.
-     *
-     * @param size The size of the image, signified by 0, 1, or 2.
-     * @param dest The destination folder.
-     * @return     A boolean signifying whether the download succeeded.
-     */
+    * The backend implementation of downnload_[size]_image.
+    * Cannot be accessed from outside.
+    *
+    * @param size The size of the image, signified by 0, 1, or 2.
+    * @param dest The destination folder.
+    * @return     A boolean signifying whether the download succeeded.
+    */
     protected boolean download_img(int size, String dest) {
         URL url = null;
 
@@ -188,6 +208,13 @@ public class Anime extends Kitsu {
             return false;
         }
 
+/*        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ex) {
+            System.out.println (ex);
+            return false;
+        }
+*/
         return true;
     }
 
