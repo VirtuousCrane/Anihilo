@@ -79,6 +79,7 @@ public class QuestionMaker {
 
     public Question internalMakeQuestion(double positionalDifference, Comparator<Anime> comparator, String prompt, String difficulty){
 
+        this.fillAnimeList();
         this.sortBy(comparator);
 
         Random random = new Random();
