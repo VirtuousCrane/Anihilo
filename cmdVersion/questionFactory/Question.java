@@ -57,6 +57,12 @@ public class Question {
         this.answer = answer;
     }
 
+    // user choose left anime = -1, user choose right anime = 1;
+    public boolean checkAnswer(int userAnswer){
+        // this.answer == 0 means both side are correct "a freebie"
+        return (userAnswer == this.answer) || (this.answer == 0);
+    }
+
     @Override
     public String toString() {
         return "Question{" +
