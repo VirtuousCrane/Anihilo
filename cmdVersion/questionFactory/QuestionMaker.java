@@ -27,9 +27,13 @@ public class QuestionMaker {
     }
 
     // Generate Question with random difficulty and type
-//    public Question makeQuestion(){
-//
-//    }
+    public Question makeQuestion(){
+        Random random = new Random();
+        int randomDifficultyIndex = random.nextInt(difficultyLevels.length);
+        String randomDifficulty = difficultyLevels[0];
+        return makeQuestion(randomDifficulty);
+
+    }
 //  Generate Question() with determined difficulty and random type
     public Question makeQuestion(String difficulty){
         Random random = new Random();
