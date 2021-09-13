@@ -1,4 +1,4 @@
-package cmdVersion;
+package cmdVersion.questionFactory;
 import connection.Anime;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,12 +32,12 @@ public class QuestionMaker {
 //    }
 //
 //    // Generate Question() with determined difficulty and type
-//    public Question makeQuestion(String difficulty, String type){
-//        if(difficulty.equalsIgnoreCase("Easy")){
-//            return this.internalMakeQuestion(EASY_POSITIONAL_DIFFERENCE,)
-//        }
-//
-//    }
+    public Question makeQuestion(String difficulty, String type){
+        if(difficulty.equalsIgnoreCase("Easy")){
+            return this.internalMakeQuestion(EASY_POSITIONAL_DIFFERENCE,)
+        }
+
+    }
 //    // END CONSTRUCTOR METHOD
 //
 
@@ -117,7 +117,7 @@ public class QuestionMaker {
         int amountOfAnimeToAdd = this.MAX_ANIME_SIZE - this.animeList.size();
         for(int i = 0; i < amountOfAnimeToAdd; i++){
             int randNumFromList = getRandomNumberFromList();
-            this.animeList.add(new Anime(randNumFromList));
+            this.animeList.add(new Anime(randNumFromList, false));
         }
     }
 
