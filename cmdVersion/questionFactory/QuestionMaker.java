@@ -21,19 +21,25 @@ public class QuestionMaker {
     final double HARD_POSITIONAL_DIFFERENCE = 0.1;
     final double DEATH_POSITIONAL_DIFFERENCE = 0.01;
 
+    public QuestionMaker(){
+        this.generateRandomNumberList();
+        this.fillAnimeList();
+    }
 
-    // START CONTRUCTOR METHOD
     // Generate Question with random difficulty and type
 //    public Question makeQuestion(){
 //
 //    }
-//
-//    // Generate Question() with determined difficulty and random type
-//    public Question makeQuestion(String difficulty){
-//
-//    }
-//
-//    // Generate Question() with determined difficulty and type
+//  Generate Question() with determined difficulty and random type
+    public Question makeQuestion(String difficulty){
+        Random random = new Random();
+        int randomTypeIndex = random.nextInt(QuestionComponentFactory.questionTypes.length);
+        String randomType = QuestionComponentFactory.questionTypes[randomTypeIndex];
+        return makeQuestion(difficulty, randomType);
+    }
+
+
+//  Generate Question() with determined difficulty and type
     public Question makeQuestion(String difficulty, String inType) {
         String generatedPrompt = QuestionComponentFactory.getPrompt(inType);
         Comparator<Anime> generatedComparator = QuestionComponentFactory.getComparator(inType);
@@ -59,9 +65,6 @@ public class QuestionMaker {
 
         return internalMakeQuestion(positionalDifference, generatedComparator, generatedPrompt, difficulty);
     }
-//    // END CONSTRUCTOR METHOD
-//
-
 
     // Algorithm for generating question based on difficulty
     // Difficulty is based on the positionalDifference of the list

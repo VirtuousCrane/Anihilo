@@ -11,7 +11,9 @@ public class cmdApp {
 
         QuestionMaker questionMaker = new QuestionMaker();
         Question q = questionMaker.makeQuestion("easy", "ratingRank");
-        System.out.println();
+        System.out.println(q.getLeftAnime().get_rating_rank());
+        System.out.println(q.getRightAnime().get_rating_rank());
+        System.out.println(q.getAnswer());
 
 
     }
