@@ -32,7 +32,7 @@ public class Anime extends Kitsu {
      */
     public Anime () {
         this (rand.nextInt(1000));
-        System.out.println("Anime class is created with " + this.get_kitsu_id());
+        System.out.println("Anime class is created with kitsuID of: " + this.get_kitsu_id());
     }
 
     /**
