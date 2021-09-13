@@ -14,6 +14,8 @@ public class QuestionMaker {
     final int MAX_ANIME_SIZE = 20;
     final int MIN_ANIME_SIZE = 10;
 
+
+    final String[] difficultyLevels = {"easy", "medium", "hard", "death"};
     final double EASY_POSITIONAL_DIFFERENCE = 0.4;
     final double MEDIUM_POSITIONAL_DIFFERENCE = 0.2;
     final double HARD_POSITIONAL_DIFFERENCE = 0.1;
@@ -32,11 +34,30 @@ public class QuestionMaker {
 //    }
 //
 //    // Generate Question() with determined difficulty and type
-    public Question makeQuestion(String difficulty, String type){
-        if(difficulty.equalsIgnoreCase("Easy")){
-            return this.internalMakeQuestion(EASY_POSITIONAL_DIFFERENCE,)
+    public Question makeQuestion(String difficulty, String inType) {
+        String generatedPrompt = QuestionComponentFactory.getPrompt(inType);
+        Comparator<Anime> generatedComparator = QuestionComponentFactory.getComparator(inType);
+        double positionalDifference;
+
+
+        if (difficulty.equalsIgnoreCase(difficultyLevels[0])) { // Easy
+            positionalDifference = EASY_POSITIONAL_DIFFERENCE;
+
+        } else if (difficulty.equalsIgnoreCase(difficultyLevels[1])){ // Medium
+            positionalDifference = MEDIUM_POSITIONAL_DIFFERENCE;
+
+        } else if(difficulty.equalsIgnoreCase(difficultyLevels[2])){ // Hard
+            positionalDifference = HARD_POSITIONAL_DIFFERENCE;
+
+        } else if(difficulty.equalsIgnoreCase(difficultyLevels[3])){ // Death
+            positionalDifference = DEATH_POSITIONAL_DIFFERENCE;
+
+        } else {
+            System.out.println("Error: QuestionMaker makeQuestion(String,String)");
+            positionalDifference = MEDIUM_POSITIONAL_DIFFERENCE;
         }
 
+        return internalMakeQuestion(positionalDifference, generatedComparator, generatedPrompt, difficulty);
     }
 //    // END CONSTRUCTOR METHOD
 //
@@ -48,9 +69,9 @@ public class QuestionMaker {
     // We pick a random number then by random chance move forward/backward by positionalDifference% of the list
     // The two anime will then be selected for making question object
 
-    public Question internalMakeQuestion(double positionalDifference, String difficulty, String type, String prompt){
 
-        Comparator<Anime> comparator = AnimeComparatorFactory.getComparator(type);
+    public Question internalMakeQuestion(double positionalDifference, Comparator<Anime> comparator, String prompt, String difficulty){
+
         this.sortBy(comparator);
 
         Random random = new Random();
