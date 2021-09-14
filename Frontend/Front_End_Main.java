@@ -16,6 +16,7 @@ public class Front_End_Main {
         main_page.setSize(600, 500); // size (length, height)
         main_page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Program Terminate Upon close
         main_page.setLayout(null);
+        main_page.setVisible(true);
 
         // * set Title
         main_page.setTitle("Higher or Lower");
@@ -78,6 +79,9 @@ public class Front_End_Main {
         // ! just change the JButton
 
         // * set panel
+        // large width*height (550x780)
+        // medium (390x554)
+        // small (110x156)
         JPanel border = new JPanel();
         border.setBounds(0, 350, 600, 150);
         border.setBackground(Color.gray);
@@ -97,7 +101,6 @@ public class Front_End_Main {
         // * Create a Message Using JTextPane
 
         // * make JFrame visible (need to be put last)
-        main_page.setVisible(true);
 
     }
 }
