@@ -13,8 +13,8 @@ public class Main_Game_Page {
                 JFrame main_page = new JFrame();
 
                 // * Setting Frame Size and etc
-                main_page.setSize(600, 500); // size (length, height)
-                main_page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Program Terminate Upon close
+                main_page.setSize(600, 500);
+                main_page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 main_page.setLayout(null);
 
                 // * set Title
@@ -46,11 +46,11 @@ public class Main_Game_Page {
                 // medium (390x554)
                 // small (110x156)
 
-                ImageIcon left_pic = new ImageIcon("Frontend/Unknown.jpg"); // setImage
+                ImageIcon left_pic = new ImageIcon("Frontend/Unknown.jpg");
                 ImageIcon right_pic = new ImageIcon("Frontend/Unknown.jpg");
                 JButton left_button = new JButton(left_pic);
                 JButton right_button = new JButton(right_pic);
-                left_button.setBounds(116, 80, 130, 180); // x-axis, y-axis, width, height
+                left_button.setBounds(116, 80, 130, 180);
                 right_button.setBounds(376, 80, 130, 180);
 
                 main_page.add(left_button);
@@ -58,13 +58,11 @@ public class Main_Game_Page {
 
                 // * Create Border
                 // * Panel for score
-                JPanel score_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 10)); // FlowLayout(alignemnt,
-                                                                                             // hori-gap,
-                                                                                             // verti-gap)
-                score_border.setBounds(0, 350, 200, 150); // (Coordinate(x-axis, y-axis, length, height))
-                score_border.setBorder(new MatteBorder(1, 1, 1, 1, Color.black)); // MatteBorder(top, left, down, right,
-                                                                                  // Color)
-                // wait for tae input in score_test
+                JPanel score_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 10));
+                score_border.setBounds(0, 350, 200, 150);
+                score_border.setBorder(new MatteBorder(1, 1, 1, 1, Color.black));
+
+                // ? wait for tae input in score_test
                 String score_test = "10000";
                 JLabel score = new JLabel(Utils.toHTML(
                                 "<p style='font-size:20px; text-align:center;'>Score<br />" + score_test + "</p>"));
