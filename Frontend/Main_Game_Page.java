@@ -7,16 +7,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Front_End_Main {
+public class Main_Game_Page {
 
-    Front_End_Main() {
+    Main_Game_Page() {
         JFrame main_page = new JFrame();
 
         // * Setting Frame Size and etc
         main_page.setSize(600, 500); // size (length, height)
         main_page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Program Terminate Upon close
         main_page.setLayout(null);
-        main_page.setVisible(true);
 
         // * set Title
         main_page.setTitle("Higher or Lower");
@@ -78,13 +77,10 @@ public class Front_End_Main {
         // ! Create a getPicture() here for left and right then change the ImageIcon or
         // ! just change the JButton
 
-        // * set panel
+        //// * set panel (button for image)
         // large width*height (550x780)
         // medium (390x554)
         // small (110x156)
-        JPanel border = new JPanel();
-        border.setBounds(0, 350, 600, 150);
-        border.setBackground(Color.gray);
 
         ImageIcon left_pic = new ImageIcon("Frontend/Unknown.jpg"); // setImage
         ImageIcon right_pic = new ImageIcon("Frontend/Unknown.jpg");
@@ -96,11 +92,29 @@ public class Front_End_Main {
         main_page.add(left_button);
         main_page.add(right_button);
 
+        //// * (button for back)
+        JButton back_button = new JButton("Main Menu");
+        back_button.setBounds(10, 10, 100, 20);
+        main_page.add(back_button);
+
         // * Create Text Area
+        //// * Text for Instruction
+        JPanel instruction_panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
+        instruction_panel.setBounds(150, 0, 300, 80);
+
+        String rule = "popular";
+        JLabel instruction_text1 = new JLabel("Which of the 2");
+        JLabel instruction_text2 = new JLabel("anime is more " + rule + "?");
+        instruction_text1.setFont(instruction_text1.getFont().deriveFont(20f));
+        instruction_text2.setFont(instruction_text2.getFont().deriveFont(20f));
+        instruction_panel.add(instruction_text1);
+        instruction_panel.add(instruction_text2);
+
+        main_page.add(instruction_panel);
 
         // * Create a Message Using JTextPane
 
         // * make JFrame visible (need to be put last)
-
+        main_page.setVisible(true);
     }
 }
