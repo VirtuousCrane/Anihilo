@@ -20,58 +20,22 @@ public class Main_Game_Page {
         // * set Title
         main_page.setTitle("Higher or Lower");
 
-        // * Create Border
-        // * Panel for score
-        JPanel score_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 10)); // FlowLayout(alignemnt, hori-gap,
-                                                                                     // verti-gap)
-        score_border.setBounds(0, 350, 200, 150); // (Coordinate(x-axis, y-axis, length, height))
-        score_border.setBorder(new MatteBorder(1, 1, 1, 1, Color.black)); // MatteBorder(top, left, down, right, Color)
-        // wait for tae input in score_test
-        String score_test = "10000";
-        JLabel score = new JLabel();
-        score.setText("Score");
-        score.setFont(score.getFont().deriveFont(25f));
-        JLabel score_num = new JLabel();
-        score_num.setText(score_test);
-        score_num.setFont(score_num.getFont().deriveFont(25f));
+        //// * (button for back)
+        JButton back_button = new JButton("Main Menu");
+        back_button.setBounds(10, 10, 100, 20);
+        main_page.add(back_button);
 
-        score_border.add(score);
-        score_border.add(score_num);
-        main_page.add(score_border);
+        // * Create Text Area
+        //// * Text for Instruction
+        JPanel instruction_panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
+        instruction_panel.setBounds(150, 0, 300, 80);
 
-        // * Panel for Guess
-        JPanel guess_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 10));
-        guess_border.setBounds(200, 350, 200, 150);
-        guess_border.setBorder(new MatteBorder(1, 0, 1, 0, Color.black));
-        // wait for tae input in guess_test
-        String guess_test = "1";
-        JLabel guess = new JLabel();
-        guess.setText("Guess");
-        guess.setFont(guess.getFont().deriveFont(25f));
-        JLabel guess_num = new JLabel();
-        guess_num.setText(guess_test);
-        guess_num.setFont(guess_num.getFont().deriveFont(25f));
+        JLabel instruction_text = new JLabel(
+                "<html><p{text-alignment: center;} style=\"font-size:18px\"> Which of the 2 <BR> anime is more popular?</p></html>");
+        instruction_panel.add(instruction_text);
 
-        guess_border.add(guess);
-        guess_border.add(guess_num);
-        main_page.add(guess_border);
-
-        // * Panel for accuracy
-        JPanel accuracy_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 10));
-        accuracy_border.setBounds(400, 350, 200, 150);
-        accuracy_border.setBorder(new MatteBorder(1, 1, 1, 1, Color.black));
-        // wait for tae input in accuracy_test
-        String accuracy_test = "1";
-        JLabel accuracy = new JLabel();
-        accuracy.setText("Accuracy");
-        accuracy.setFont(accuracy.getFont().deriveFont(25f));
-        JLabel accuracy_num = new JLabel();
-        accuracy_num.setText(accuracy_test);
-        accuracy_num.setFont(accuracy_num.getFont().deriveFont(25f));
-
-        accuracy_border.add(accuracy);
-        accuracy_border.add(accuracy_num);
-        main_page.add(accuracy_border);
+        main_page.add(instruction_panel);
+        //// * Anime title
 
         // * Create a button
         // ! Create a getPicture() here for left and right then change the ImageIcon or
@@ -92,27 +56,43 @@ public class Main_Game_Page {
         main_page.add(left_button);
         main_page.add(right_button);
 
-        //// * (button for back)
-        JButton back_button = new JButton("Main Menu");
-        back_button.setBounds(10, 10, 100, 20);
-        main_page.add(back_button);
+        // * Create Border
+        // * Panel for score
+        JPanel score_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 10)); // FlowLayout(alignemnt, hori-gap,
+                                                                                     // verti-gap)
+        score_border.setBounds(0, 350, 200, 150); // (Coordinate(x-axis, y-axis, length, height))
+        score_border.setBorder(new MatteBorder(1, 1, 1, 1, Color.black)); // MatteBorder(top, left, down, right, Color)
+        // wait for tae input in score_test
+        String score_test = "10000";
+        JLabel score = new JLabel(
+                "<html><p{text-alignment:center;} style=\"font-size:20px\">Score<BR>" + score_test + "</p></html>");
 
-        // * Create Text Area
-        //// * Text for Instruction
-        JPanel instruction_panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
-        instruction_panel.setBounds(150, 0, 300, 80);
+        score_border.add(score);
+        main_page.add(score_border);
 
-        String rule = "popular";
-        JLabel instruction_text1 = new JLabel("Which of the 2");
-        JLabel instruction_text2 = new JLabel("anime is more " + rule + "?");
-        instruction_text1.setFont(instruction_text1.getFont().deriveFont(20f));
-        instruction_text2.setFont(instruction_text2.getFont().deriveFont(20f));
-        instruction_panel.add(instruction_text1);
-        instruction_panel.add(instruction_text2);
+        // * Panel for Guess
+        JPanel guess_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 10));
+        guess_border.setBounds(200, 350, 200, 150);
+        guess_border.setBorder(new MatteBorder(1, 0, 1, 0, Color.black));
+        // wait for tae input in guess_test
+        String guess_test = "10000";
+        JLabel guess = new JLabel(
+                "<html><p{text-alignment:center;} style=\"font-size:20px\">Guess<BR>" + guess_test + "</p></html>");
 
-        main_page.add(instruction_panel);
+        guess_border.add(guess);
+        main_page.add(guess_border);
 
-        // * Create a Message Using JTextPane
+        // * Panel for accuracy
+        JPanel accuracy_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 10));
+        accuracy_border.setBounds(400, 350, 200, 150);
+        accuracy_border.setBorder(new MatteBorder(1, 1, 1, 1, Color.black));
+        // wait for tae input in accuracy_test
+        String accuracy_test = "1";
+        JLabel accuracy = new JLabel("<html><p{text-alignment:center;} style=\"font-size:20px\">Accuracy<BR>"
+                + accuracy_test + "</p></html>");
+
+        accuracy_border.add(accuracy);
+        main_page.add(accuracy_border);
 
         // * make JFrame visible (need to be put last)
         main_page.setVisible(true);
