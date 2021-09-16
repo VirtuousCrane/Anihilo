@@ -1,4 +1,4 @@
-package Main_Game;
+package main_game;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,8 +16,8 @@ public class Game_Part {
         // medium (390x554)
         // small (110x156)
 
-        ImageIcon left_pic = new ImageIcon("Frontend/Main_Game/Unknown.jpg");
-        ImageIcon right_pic = new ImageIcon("Frontend/Main_Game/Unknown.jpg");
+        ImageIcon left_pic = new ImageIcon("Frontend/src/Main_Game/Unknown.jpg");
+        ImageIcon right_pic = new ImageIcon("Frontend/src/Main_Game/Unknown.jpg");
         JButton left_button = new JButton(left_pic);
         JButton right_button = new JButton(right_pic);
         left_button.setBounds(116, 80, 130, 180);

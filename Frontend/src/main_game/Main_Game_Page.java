@@ -1,4 +1,4 @@
-package Main_Game;
+package main_game;
 
 import javax.swing.JFrame;
 // import java.awt.Color;

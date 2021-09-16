@@ -1,4 +1,4 @@
-package Main_Game;
+package utility;
 
 public class Utils {
     public static String toHTML(String body) {

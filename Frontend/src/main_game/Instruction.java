@@ -1,4 +1,4 @@
-package Main_Game;
+package main_game;
 
 import java.awt.FlowLayout;
 import javax.swing.JButton;
