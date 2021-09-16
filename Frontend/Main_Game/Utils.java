@@ -1,5 +1,7 @@
+package Main_Game;
+
 public class Utils {
-    static String toHTML(String body) {
+    public static String toHTML(String body) {
         String html = "<html><body>" + body + "</body></html>";
         return html;
     }
