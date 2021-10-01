@@ -30,7 +30,7 @@ public class QuestionMaker {
     public Question makeQuestion(){
         Random random = new Random();
         int randomDifficultyIndex = random.nextInt(difficultyLevels.length);
-        String randomDifficulty = difficultyLevels[0];
+        String randomDifficulty = difficultyLevels[randomDifficultyIndex];
         return makeQuestion(randomDifficulty);
 
     }
