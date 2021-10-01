@@ -11,7 +11,7 @@ public class QuestionMaker {
 
     final int MAX_RANDOM_NUMBER_SIZE = 1000;
     final int MIN_RANDOM_NUMBER_SIZE = 100;
-    final int MAX_ANIME_SIZE = 20;
+    final int MAX_ANIME_SIZE = 50;
     final int MIN_ANIME_SIZE = 10;
 
 
@@ -149,6 +149,4 @@ public class QuestionMaker {
             this.animeList.add(new Anime(randNumFromList, false));
         }
     }
-
-
 }
