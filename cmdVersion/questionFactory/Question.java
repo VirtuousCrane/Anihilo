@@ -4,17 +4,32 @@ import connection.Anime;
 public class Question {
     Anime leftAnime;
     Anime rightAnime;
+
+    String leftAnimeImgPath;
+    String rightAnimeImgPath;
+
     String difficulty = "Question object default difficulty";
     String prompt = "Question object default prompt";
     int answer = -1; // -1 is default, 0 is left, 1 is right
 
+    /**
+     * @param leftAnime
+     * @param rightAnime
+     * @param difficulty
+     * @param prompt
+     * @param answer
+     * @param leftAnimeImgPath
+     * @param rightAnimeImgPath
+     */
     // Constructors for making the question
-    public Question(Anime leftAnime, Anime rightAnime, String difficulty, String prompt, int answer) {
+    public Question(Anime leftAnime, Anime rightAnime, String difficulty, String prompt, int answer, String leftAnimeImgPath, String rightAnimeImgPath) {
         this.leftAnime = leftAnime;
         this.rightAnime = rightAnime;
         this.difficulty = difficulty;
         this.prompt = prompt;
         this.answer = answer; // -1 means left, 0 means both answer are correct, 1 means right
+        this.leftAnimeImgPath = leftAnimeImgPath;
+        this.rightAnimeImgPath = rightAnimeImgPath;
     }
 
     public Anime getLeftAnime() {
@@ -56,6 +71,23 @@ public class Question {
     public void setAnswer(int answer) {
         this.answer = answer;
     }
+
+    public String getLeftAnimeImgPath() {
+        return leftAnimeImgPath;
+    }
+
+    public void setLeftAnimeImgPath(String leftAnimeImgPath) {
+        this.leftAnimeImgPath = leftAnimeImgPath;
+    }
+
+    public String getRightAnimeImgPath() {
+        return rightAnimeImgPath;
+    }
+
+    public void setRightAnimeImgPath(String rightAnimeImgPath) {
+        this.rightAnimeImgPath = rightAnimeImgPath;
+    }
+
 
     // user choose left anime = -1, user choose right anime = 1;
     public boolean checkAnswer(int userAnswer){
