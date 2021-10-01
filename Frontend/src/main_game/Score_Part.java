@@ -13,7 +13,7 @@ public class Score_Part {
                 // * Create Border
                 // * Panel for score
                 JPanel score_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 10));
-                score_border.setBounds(0, 350, 200, 150);
+                score_border.setBounds(0, 450, 250, 150);
                 score_border.setBorder(new MatteBorder(1, 1, 1, 1, Color.black));
 
                 // ? wait for tae input in score_test
@@ -26,7 +26,7 @@ public class Score_Part {
 
                 // * Panel for Guess
                 JPanel guess_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 10));
-                guess_border.setBounds(200, 350, 200, 150);
+                guess_border.setBounds(250, 450, 250, 150);
                 guess_border.setBorder(new MatteBorder(1, 0, 1, 0, Color.black));
                 // wait for tae input in guess_test
                 String guess_test = "1";
@@ -38,7 +38,7 @@ public class Score_Part {
 
                 // * Panel for accuracy
                 JPanel accuracy_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10));
-                accuracy_border.setBounds(400, 350, 200, 150);
+                accuracy_border.setBounds(500, 450, 250, 150);
                 accuracy_border.setBorder(new MatteBorder(1, 1, 1, 1, Color.black));
                 // wait for tae input in accuracy_test
                 String accuracy_test = "10000";
