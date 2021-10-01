@@ -12,7 +12,6 @@ public class Instruction {
 
         String prompt = "Which of the 2 anime is more popular?"; // ? get from Tae
         String word = LineBreaker.breaker(prompt);
-        System.out.println(word);
 
         //// * (button for back)
         JButton back_button = new JButton("Main Menu");

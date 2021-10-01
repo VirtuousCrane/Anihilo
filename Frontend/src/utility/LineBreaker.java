@@ -4,6 +4,7 @@ import java.lang.StringBuilder;
 
 public class LineBreaker {
     public static String breaker(String s) {
+        // * add <BR/> in " " in the last every 30 letter or less
         StringBuilder sb = new StringBuilder(s);
 
         int i = 0;
