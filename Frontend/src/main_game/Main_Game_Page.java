@@ -1,13 +1,6 @@
 package main_game;
 
 import javax.swing.JFrame;
-// import java.awt.Color;
-// import java.awt.FlowLayout;
-// import javax.swing.border.MatteBorder; // extra modify for border
-// import javax.swing.ImageIcon;
-// import javax.swing.JButton;
-// import javax.swing.JLabel;
-// import javax.swing.JPanel;
 
 public class Main_Game_Page {
 
@@ -15,7 +8,7 @@ public class Main_Game_Page {
                 JFrame main_page = new JFrame();
 
                 // * Setting Frame Size and etc
-                main_page.setSize(600, 500);
+                main_page.setSize(750, 600);
                 main_page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 main_page.setLayout(null);
 
