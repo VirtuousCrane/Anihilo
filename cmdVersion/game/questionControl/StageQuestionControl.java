@@ -9,7 +9,19 @@ public class StageQuestionControl extends QuestionControl {
 
     @Override
     public String getQuestionDifficulty() {
-        return "";
+        String output = "";
+
+        if(correctGuess <= 5){
+            output = QuestionMaker.difficultyLevels[0];
+        } else if (correctGuess <= 10){
+            output = QuestionMaker.difficultyLevels[1];
+        } else if (correctGuess <= 15){
+            output = QuestionMaker.difficultyLevels[2];
+        } else {
+            output = QuestionMaker.difficultyLevels[3];
+        }
+
+        return output;
     }
 
     @Override

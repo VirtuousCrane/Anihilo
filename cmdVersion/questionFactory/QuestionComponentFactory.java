@@ -8,6 +8,7 @@ import java.util.Comparator;
 public class QuestionComponentFactory {
     public final static String[] questionTypes = {"ratingRank"};
 
+
     public static Comparator<Anime> getComparator(String inType){
         Comparator<Anime> ratingRankComp = (a1,a2) -> a2.get_rating_rank()-a1.get_rating_rank(); // Positive when a1 has better rank than a2
 
