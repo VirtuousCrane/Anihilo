@@ -1,10 +1,13 @@
 package main_game;
 
+import java.awt.FlowLayout;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JLabel;
+import utility.LineBreaker;
 
 public class Game_Part {
     public Game_Part(JFrame main_page) {
@@ -17,24 +20,45 @@ public class Game_Part {
         // medium (390x554)
         // small (110x156)
 
-        Image get_left_pic = new ImageIcon("Frontend/src/Main_Game/Example_photo.jpg").getImage();
-        Image get_right_pic = new ImageIcon("Frontend/src/Main_Game/Example_photo.jpg").getImage();
+        Image get_pic_L = new ImageIcon("Frontend/src/Main_Game/Example_photo.jpg").getImage();
+        Image get_pic_R = new ImageIcon("Frontend/src/Main_Game/Example_photo.jpg").getImage();
 
-        Image left_resize = get_left_pic.getScaledInstance(195, 277, Image.SCALE_DEFAULT);
-        Image right_resize = get_right_pic.getScaledInstance(195, 277, Image.SCALE_DEFAULT);
+        Image resize_L = get_pic_L.getScaledInstance(195, 277, Image.SCALE_DEFAULT);
+        Image resize_R = get_pic_R.getScaledInstance(195, 277, Image.SCALE_DEFAULT);
 
-        ImageIcon left_pic_resize = new ImageIcon(left_resize);
-        ImageIcon right_pic_resize = new ImageIcon(right_resize);
+        ImageIcon resizePic_L = new ImageIcon(resize_L);
+        ImageIcon resizePic_R = new ImageIcon(resize_R);
 
-        JButton left_button = new JButton(left_pic_resize);
-        JButton right_button = new JButton(right_pic_resize);
+        JButton button_L = new JButton(resizePic_L);
+        JButton button_R = new JButton(resizePic_R);
 
-        left_button.setBounds(120, 80, 195, 277);
-        right_button.setBounds(435, 80, 195, 277);
+        button_L.setBounds(120, 80, 195, 277);
+        button_R.setBounds(435, 80, 195, 277);
 
-        main_page.add(left_button);
-        main_page.add(right_button);
+        main_page.add(button_L);
+        main_page.add(button_R);
 
         //// * Anime title
+        String anime_L = "Naruto: Shippuden"; // ? get from Tae
+        String anime_R = "wrapping check 12345 67890a sdfa df d s ad fwe asdf asd"; // ? get from Tae
+
+        anime_L = LineBreaker.breaker(anime_L, 25);
+        anime_R = LineBreaker.breaker(anime_R, 25);
+
+        JPanel aniPanel_L = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
+        aniPanel_L.setBounds(100, 350, 235, 100);
+        JPanel aniPanel_R = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
+        aniPanel_R.setBounds(415, 350, 235, 100);
+
+        JLabel aniL_text = new JLabel(
+                "<html><p{text-alignment: center;} style=\"font-size:12px\">" + anime_L + "</p></html>");
+        aniPanel_L.add(aniL_text);
+        JLabel aniR_text = new JLabel(
+                "<html><p{text-alignment: center;} style=\"font-size:12px\">" + anime_R + "</p></html>");
+        aniPanel_R.add(aniR_text);
+
+        main_page.add(aniPanel_L);
+        main_page.add(aniPanel_R);
+
     }
 }
