@@ -4,12 +4,12 @@ import cmdVersion.questionFactory.Question;
 
 public class GameStats {
 
-    Integer guessAmount;
-    Integer guessCorrect;
-    Integer guessCorrectStreak;
-    double guessAccuracy;
+    Integer guessAmount = 0;
+    Integer guessCorrect = 0;
+    Integer guessCorrectStreak = 0;
+    double guessAccuracy = 0;
 
-    Question question;
+    Question question = null;
     boolean latestQuestionAnsweredCorrect;
 
     // Getter START
@@ -33,7 +33,7 @@ public class GameStats {
         return question;
     }
 
-    public boolean isLatestQuestionAnsweredCorrectly() {
+    public boolean isLatestQuestionAnsweredCorrect() {
         return latestQuestionAnsweredCorrect;
     }
     // Getter END
