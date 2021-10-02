@@ -7,10 +7,10 @@ public class StageLifeControl extends LifeControl{
     Integer remainingLives = 3;
     final Integer baseGuessTillNextLife = 3;
     Integer lifeGivenOut = 0;
-    Integer guessTillNextLife = 0;
+    Integer correctGuessTillNextLife = 0;
 
     public StageLifeControl(){
-        guessTillNextLife = lifeGivenOut + baseGuessTillNextLife;
+        correctGuessTillNextLife = lifeGivenOut + baseGuessTillNextLife;
     }
 
     @Override
@@ -21,11 +21,11 @@ public class StageLifeControl extends LifeControl{
     @Override
     public void update(GameStats gameStats) {
         if(gameStats.isLatestQuestionAnsweredCorrect()){
-            guessTillNextLife--;
-            if(guessTillNextLife <= 0){
+            correctGuessTillNextLife--;
+            if(correctGuessTillNextLife <= 0){
                 remainingLives++;
                 lifeGivenOut++;
-                guessTillNextLife = baseGuessTillNextLife + lifeGivenOut;
+                correctGuessTillNextLife = baseGuessTillNextLife + lifeGivenOut;
             }
         } else {
             remainingLives--;
@@ -36,7 +36,7 @@ public class StageLifeControl extends LifeControl{
     public String toString() {
         String output = "StageLifeControl: " + "\n";
         output += "Remaining lives: " + remainingLives + "\n";
-        output += "Guess til next life: " + guessTillNextLife + "\n";
+        output += "Correct guess til next life: " + correctGuessTillNextLife + "\n";
         return output;
     }
 }

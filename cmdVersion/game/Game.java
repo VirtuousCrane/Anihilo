@@ -62,7 +62,7 @@ public class Game {
 
         while(lifeControl.isAlive()){
             String questionDifficulty = questionControl.getQuestionDifficulty();
-            String questionType = questionControl.getQuestionDifficulty();
+            String questionType = questionControl.getQuestionType();
             gameStats.setQuestion(this.questionMaker.makeQuestion(questionDifficulty, questionType));
 
             // Updating view
