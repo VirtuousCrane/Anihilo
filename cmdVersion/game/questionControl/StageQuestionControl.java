@@ -26,11 +26,11 @@ public class StageQuestionControl extends QuestionControl {
 
     @Override
     public String getQuestionType() {
-        return null;
+        return QuestionMaker.questionTypes[0];
     }
 
     @Override
     public void update(GameStats gameStats) {
-
+        this.correctGuess = gameStats.getGuessCorrect();
     }
 }
