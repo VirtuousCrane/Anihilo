@@ -1,6 +1,5 @@
 package main_game;
 
-import java.awt.FlowLayout;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -45,9 +44,9 @@ public class Game_Part {
         anime_L = LineBreaker.breaker(anime_L, 25);
         anime_R = LineBreaker.breaker(anime_R, 25);
 
-        JPanel aniPanel_L = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
+        JPanel aniPanel_L = new JPanel();
         aniPanel_L.setBounds(100, 350, 235, 100);
-        JPanel aniPanel_R = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
+        JPanel aniPanel_R = new JPanel();
         aniPanel_R.setBounds(415, 350, 235, 100);
 
         JLabel aniL_text = new JLabel(

@@ -1,7 +1,6 @@
 package main_game;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
 import javax.swing.border.MatteBorder;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,7 +11,7 @@ public class Score_Part {
         public Score_Part(JFrame main_page) {
                 // * Create Border
                 // * Panel for score
-                JPanel score_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 10));
+                JPanel score_border = new JPanel();
                 score_border.setBounds(0, 450, 250, 150);
                 score_border.setBorder(new MatteBorder(1, 1, 1, 1, Color.black));
 
@@ -25,7 +24,7 @@ public class Score_Part {
                 main_page.add(score_border);
 
                 // * Panel for Guess
-                JPanel guess_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 70, 10));
+                JPanel guess_border = new JPanel();
                 guess_border.setBounds(250, 450, 250, 150);
                 guess_border.setBorder(new MatteBorder(1, 0, 1, 0, Color.black));
                 // wait for tae input in guess_test
@@ -37,7 +36,7 @@ public class Score_Part {
                 main_page.add(guess_border);
 
                 // * Panel for accuracy
-                JPanel accuracy_border = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10));
+                JPanel accuracy_border = new JPanel();
                 accuracy_border.setBounds(500, 450, 250, 150);
                 accuracy_border.setBorder(new MatteBorder(1, 1, 1, 1, Color.black));
                 // wait for tae input in accuracy_test

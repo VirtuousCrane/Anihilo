@@ -1,6 +1,5 @@
 package main_game;
 
-import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,13 +19,23 @@ public class Instruction {
 
         // * Create Text Area
         //// * Text for Instruction
-        JPanel instruction_panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
+        JPanel instruction_panel = new JPanel();
         instruction_panel.setBounds(125, 0, 500, 80);
 
         JLabel instruction_text = new JLabel(
                 "<html><p{text-alignment: center;} style=\"font-size:18px\">" + word + "</p></html>");
         instruction_panel.add(instruction_text);
-
         main_page.add(instruction_panel);
+
+        // * Create Difficulty Text Area
+        String diff = "Very Hard"; // ? get from Tae
+        JPanel diff_panel = new JPanel();
+        diff_panel.setBounds(630, 10, 100, 30);
+
+        JLabel diff_text = new JLabel(
+                "<html><p{text-alignment: center;} style=\"font-size:12px\">" + diff + "</p></html>");
+        instruction_panel.add(instruction_text);
+        diff_panel.add(diff_text);
+        main_page.add(diff_panel);
     }
 }
