@@ -30,6 +30,17 @@ public class Game {
         this.scoreControl.update(this.gameStats);
     }
 
+    @Override
+    public String toString() {
+        return "Game\n" +
+                "questionMaker\n" + questionMaker.toString() + "\n" +
+                ", gameStats\n" + gameStats.toString() + "\n" +
+                ", questionControl\n" + questionControl.toString() +  "\n" +
+                ", lifeControl\n" + lifeControl.toString() +  "\n" +
+                ", scoreControl\n" + scoreControl.toString() +  "\n"
+             ;
+    }
+
     public void run(){
         Scanner input = new Scanner(System.in);
         Integer userAnswer = -5;
@@ -81,6 +92,9 @@ public class Game {
             this.update();
             System.out.println("Anime 1 has rating rank of " + gameStats.getQuestion().getLeftAnime().get_rating_rank());
             System.out.println("Anime 2 has rating rank of " + gameStats.getQuestion().getRightAnime().get_rating_rank());
+            System.out.println();
+
+            System.out.println(this.toString());
 
         }
         System.out.println("Game over");

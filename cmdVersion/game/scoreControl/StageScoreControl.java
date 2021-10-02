@@ -20,4 +20,11 @@ public class StageScoreControl extends ScoreControl{
     public Integer calculateScore() {
         return totalScore;
     }
+
+    @Override
+    public String toString() {
+        String output = "StageScoreControl\n";
+        output += "Current score: " + calculateScore() + "\n";
+        return output;
+    }
 }

@@ -30,6 +30,14 @@ public class StageQuestionControl extends QuestionControl {
     }
 
     @Override
+    public String toString() {
+        String output = "StageQuestionControl\n";
+        output += "Question Type: " + getQuestionType() + "\n";
+        output += "Question Difficulty: " + getQuestionDifficulty() + "\n";
+        return output;
+    }
+
+    @Override
     public void update(GameStats gameStats) {
         this.correctGuess = gameStats.getGuessCorrect();
     }

@@ -31,4 +31,12 @@ public class StageLifeControl extends LifeControl{
             remainingLives--;
         }
     }
+
+    @Override
+    public String toString() {
+        String output = "StageLifeControl: " + "\n";
+        output += "Remaining lives: " + remainingLives + "\n";
+        output += "Guess til next life: " + guessTillNextLife + "\n";
+        return output;
+    }
 }

@@ -60,4 +60,15 @@ public class GameStats {
         this.guessAccuracy = ((double)this.guessCorrect)/this.guessAmount;
     }
 
+    @Override
+    public String toString() {
+        return "GameStats\n" +
+                "guessAmount: " + guessAmount + "\n" +
+                "guessCorrect: " + guessCorrect + "\n" +
+                "guessCorrectStreak: " + guessCorrectStreak + "\n" +
+                "guessAccuracy: " + guessAccuracy + "\n" +
+                "question: " + "(choose to not print)" + "\n" +
+                "latestQuestionAnsweredCorrect: " + latestQuestionAnsweredCorrect + "\n"
+                ;
+    }
 }
