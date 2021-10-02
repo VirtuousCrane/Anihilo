@@ -10,7 +10,7 @@ public class Question {
 
     String difficulty = "Question object default difficulty";
     String prompt = "Question object default prompt";
-    int answer = -1; // -1 is default, 0 is left, 1 is right
+    int answer = 0; // -1 is left, 0 is both correct, 1 is right
 
     /**
      * @param leftAnime

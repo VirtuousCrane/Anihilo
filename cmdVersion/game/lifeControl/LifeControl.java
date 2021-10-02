@@ -1,4 +1,12 @@
 package cmdVersion.game.lifeControl;
 
-public class LifeControl {
+import cmdVersion.game.stats.GameStats;
+
+public abstract class LifeControl {
+
+    public abstract boolean isAlive();
+    public abstract void update(GameStats gameStats);
+
 }
+
+
