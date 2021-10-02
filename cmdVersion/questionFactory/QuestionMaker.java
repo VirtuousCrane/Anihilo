@@ -11,19 +11,19 @@ public class QuestionMaker {
     ArrayList<Anime> animeList = new ArrayList<Anime>();
     ArrayList<Integer> randomNumberList = new ArrayList<Integer>();
 
-    public final int MAX_RANDOM_NUMBER_SIZE = 1000;
-    public final int MIN_RANDOM_NUMBER_SIZE = 100;
-    public final int MAX_ANIME_SIZE = 50;
-    public final int MIN_ANIME_SIZE = 10;
+    public static final int MAX_RANDOM_NUMBER_SIZE = 1000;
+    public static final int MIN_RANDOM_NUMBER_SIZE = 100;
+    public static final int MAX_ANIME_SIZE = 50;
+    public static final int MIN_ANIME_SIZE = 10;
 
-    public final String[] difficultyLevels = {"easy", "medium", "hard", "death"};
-    public final double EASY_POSITIONAL_DIFFERENCE = 0.4;
-    public final double MEDIUM_POSITIONAL_DIFFERENCE = 0.2;
-    public final double HARD_POSITIONAL_DIFFERENCE = 0.1;
-    public final double DEATH_POSITIONAL_DIFFERENCE = 0.01;
+    public static final String[] difficultyLevels = {"easy", "medium", "hard", "death"};
+    public static final double EASY_POSITIONAL_DIFFERENCE = 0.4;
+    public static final double MEDIUM_POSITIONAL_DIFFERENCE = 0.2;
+    public static final double HARD_POSITIONAL_DIFFERENCE = 0.1;
+    public static final double DEATH_POSITIONAL_DIFFERENCE = 0.01;
 
-    public final String animeImgFolderPath = "animeImage\\"; // This is from source root which the "Anihilo" so this represent Anihilo\animeImg\
-    public final String animeImgFileExtension = ".jpg";
+    public static final String animeImgFolderPath = "animeImage\\"; // This is from source root which the "Anihilo" so this represent Anihilo\animeImg\
+    public static final String animeImgFileExtension = ".jpg";
 
     public QuestionMaker(){
         this.generateRandomNumberList();
