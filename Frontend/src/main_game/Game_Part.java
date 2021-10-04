@@ -1,15 +1,15 @@
 package main_game;
 
+import java.awt.CardLayout;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import utility.LineBreaker;
 
 public class Game_Part {
-    public Game_Part(JFrame main_page) {
+    public Game_Part(JPanel main_game_page, JPanel main_page, CardLayout page) {
         // * Create a button
         // ! Create a getPicture() here for left and right then change the ImageIcon or
         // ! just change the JButton
@@ -34,8 +34,8 @@ public class Game_Part {
         button_L.setBounds(120, 80, 195, 277);
         button_R.setBounds(435, 80, 195, 277);
 
-        main_page.add(button_L);
-        main_page.add(button_R);
+        main_game_page.add(button_L);
+        main_game_page.add(button_R);
 
         //// * Anime title
         String anime_L = "Naruto: Shippuden"; // ? get from Tae
@@ -56,8 +56,8 @@ public class Game_Part {
                 "<html><p{text-alignment: center;} style=\"font-size:12px\">" + anime_R + "</p></html>");
         aniPanel_R.add(aniR_text);
 
-        main_page.add(aniPanel_L);
-        main_page.add(aniPanel_R);
+        main_game_page.add(aniPanel_L);
+        main_game_page.add(aniPanel_R);
 
     }
 }

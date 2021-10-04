@@ -1,14 +1,14 @@
 package main_game;
 
+import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.border.MatteBorder;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import utility.Utils;
 
 public class Score_Part {
-        public Score_Part(JFrame main_page) {
+        public Score_Part(JPanel main_game_page, JPanel main_page, CardLayout page) {
                 // * Create Border
                 // * Panel for score
                 JPanel score_border = new JPanel();
@@ -21,7 +21,7 @@ public class Score_Part {
                                 "<p style='font-size:20px; text-align:center;'>Score<br />" + score_test + "</p>"));
 
                 score_border.add(score);
-                main_page.add(score_border);
+                main_game_page.add(score_border);
 
                 // * Panel for Guess
                 JPanel guess_border = new JPanel();
@@ -33,7 +33,7 @@ public class Score_Part {
                                 "<p style='font-size:20px; text-align:center;'>Guess<br />" + guess_test + "</p>"));
 
                 guess_border.add(guess);
-                main_page.add(guess_border);
+                main_game_page.add(guess_border);
 
                 // * Panel for accuracy
                 JPanel accuracy_border = new JPanel();
@@ -45,6 +45,6 @@ public class Score_Part {
                                 + accuracy_test + "</p>"));
 
                 accuracy_border.add(accuracy);
-                main_page.add(accuracy_border);
+                main_game_page.add(accuracy_border);
         }
 }
