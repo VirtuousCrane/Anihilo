@@ -7,9 +7,6 @@ import javax.swing.JPanel;
 
 public class Main_GUI {
     public static void main(String[] args) throws Exception {
-        // new Main_Menu_Page();
-        // new Main_Game_Page();
-
         JFrame main_page = new JFrame();
 
         // * Setting Frame Size and etc
@@ -26,6 +23,7 @@ public class Main_GUI {
         deck.setBounds(0, 0, 750, 600);
         deck.setLayout(page);
 
+        // * create and add JPanel to deck
         JPanel page1 = Main_Menu_Page.Main_Menu(deck, page);
         deck.add(page1, "page1");
         JPanel page2 = Main_Game_Page.Main_Game(deck, page);
