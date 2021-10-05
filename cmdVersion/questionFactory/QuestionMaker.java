@@ -1,4 +1,6 @@
 package cmdVersion.questionFactory;
+import cmdVersion.questionFactory.animeComparator.popularityRankAnimeComparator;
+import cmdVersion.questionFactory.animeComparator.ratingRankAnimeComparator;
 import connection.Anime;
 
 import java.io.File;
@@ -22,7 +24,7 @@ public class QuestionMaker {
     public static final double HARD_POSITIONAL_DIFFERENCE = 0.1;
     public static final double DEATH_POSITIONAL_DIFFERENCE = 0.01;
 
-    public final static String[] questionTypes = {"ratingRank"};
+    public final static String[] questionTypes = {"ratingRank", "popularityRank"};
 
     public static final String animeImgFolderPath = "animeImage\\"; // This is from source root which the "Anihilo" so this represent Anihilo\animeImg\
     public static final String animeImgFileExtension = ".jpg";
@@ -177,21 +179,27 @@ public class QuestionMaker {
     }
 
     public static Comparator<Anime> getComparator(String inType){
-        Comparator<Anime> ratingRankComp = (a1,a2) -> a2.get_rating_rank()-a1.get_rating_rank(); // Positive when a1 has better rank than a2
+        //Comparator<Anime> ratingRankComp = (a1,a2) -> a2.get_rating_rank()-a1.get_rating_rank(); // Positive when a1 has better rank than a2
+        //Comparator<Anime> popularityRankComp = (a1,a2) -> a2.get_rating_rank()-a1.get_rating_rank(); // Positive when a1 has better popularity rank than a2
+
 
         if(inType.equalsIgnoreCase(questionTypes[0])){
-            return ratingRankComp;
+            return new ratingRankAnimeComparator();
+        } else if (inType.equalsIgnoreCase(questionTypes[1])){
+            return new popularityRankAnimeComparator();
         } else {
             System.out.println("Error: QuestionMaker getComparator()");
             System.out.println("Returning ratingRankComp comparator as default");
-            return ratingRankComp;
+            return new ratingRankAnimeComparator();
         }
     }
 
     public static String getPrompt(String inType){
 
         if(inType.equalsIgnoreCase(questionTypes[0])){
-            return "Select the anime with better rank";
+            return "Select the anime with better rank in term of rating";
+        } else if (inType.equalsIgnoreCase(questionTypes[1])){
+            return "Select the anime with better rank in term of popularity";
         } else {
             return "Default prompt";
         }

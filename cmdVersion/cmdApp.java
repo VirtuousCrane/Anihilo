@@ -71,11 +71,7 @@ public class cmdApp {
 //
 //        }
 
-        QuestionControl questionControl = new StageQuestionControl();
-        ScoreControl scoreControl = new StageScoreControl();
-        LifeControl lifeControl = new StageLifeControl();
-        Game game = new Game(questionControl, lifeControl, scoreControl);
-        game.run();
+
         // END OF MAIN
     }
 
