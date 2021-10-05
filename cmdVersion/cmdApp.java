@@ -11,6 +11,8 @@ import cmdVersion.questionFactory.QuestionMaker;
 import connection.Anime;
 
 import java.awt.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -42,7 +44,7 @@ public class cmdApp {
 //        int userAnswer;
 //
 //        for(int i = 0; i < 5; i++){
-//            q = questionMaker.makeQuestion("easy", "ratingRank");
+//            q = questionMaker.makeQuestion("easy", "startDate");
 //            System.out.println(q.getPrompt() + "\n");
 //
 //            // Updating view
@@ -66,8 +68,8 @@ public class cmdApp {
 //                System.out.println("Wrong");
 //            }
 //
-//            System.out.println("Anime 1 has rating rank of " + q.getLeftAnime().get_rating_rank());
-//            System.out.println("Anime 2 has rating rank of " + q.getRightAnime().get_rating_rank());
+//            System.out.println("Anime 1 has attribute of " + q.getLeftAnime().get_start_date());
+//            System.out.println("Anime 2 has attribute of " + q.getRightAnime().get_start_date());
 //
 //        }
 
@@ -76,6 +78,16 @@ public class cmdApp {
         LifeControl lifeControl = new StageLifeControl();
         Game game = new Game(questionControl, lifeControl, scoreControl);
         game.run();
+//        Anime anime1 = new Anime();
+//        System.out.println(anime1.get_name());
+//        System.out.println(anime1.get_start_date());
+//        System.out.println(anime1.get_end_date());
+
+//        String strDate1 = "2017-07-25";
+//        String strDate2 = "2018-01-01";
+//        LocalDate date1 = LocalDate.parse(strDate1, DateTimeFormatter.ISO_DATE);
+//        LocalDate date2 = LocalDate.parse(strDate2, DateTimeFormatter.ISO_DATE);
+//        System.out.println(date2.compareTo(date1));
         // END OF MAIN
     }
 

@@ -1,6 +1,7 @@
 package cmdVersion.questionFactory;
 import cmdVersion.questionFactory.animeComparator.popularityRankAnimeComparator;
 import cmdVersion.questionFactory.animeComparator.ratingRankAnimeComparator;
+import cmdVersion.questionFactory.animeComparator.startDateAnimeComparator;
 import connection.Anime;
 
 import java.io.File;
@@ -24,7 +25,7 @@ public class QuestionMaker {
     public static final double HARD_POSITIONAL_DIFFERENCE = 0.1;
     public static final double DEATH_POSITIONAL_DIFFERENCE = 0.01;
 
-    public final static String[] questionTypes = {"ratingRank", "popularityRank"};
+    public final static String[] questionTypes = {"ratingRank", "popularityRank", "startDate"};
 
     public static final String animeImgFolderPath = "animeImage\\"; // This is from source root which the "Anihilo" so this represent Anihilo\animeImg\
     public static final String animeImgFileExtension = ".jpg";
@@ -187,6 +188,8 @@ public class QuestionMaker {
             return new ratingRankAnimeComparator();
         } else if (inType.equalsIgnoreCase(questionTypes[1])){
             return new popularityRankAnimeComparator();
+        } else if (inType.equalsIgnoreCase(questionTypes[2])){
+            return new startDateAnimeComparator();
         } else {
             System.out.println("Error: QuestionMaker getComparator()");
             System.out.println("Returning ratingRankComp comparator as default");
@@ -200,7 +203,9 @@ public class QuestionMaker {
             return "Select the anime with better rank in term of rating";
         } else if (inType.equalsIgnoreCase(questionTypes[1])){
             return "Select the anime with better rank in term of popularity";
-        } else {
+        } else if (inType.equalsIgnoreCase(questionTypes[2])){
+            return "Select the anime which came out first";
+        }else {
             return "Default prompt";
         }
 
