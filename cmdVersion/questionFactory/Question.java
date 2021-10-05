@@ -22,6 +22,7 @@ public class Question {
      * @param rightAnimeImgPath
      */
 
+
     // Constructors for making the question
     public Question(Anime leftAnime, Anime rightAnime, String difficulty, String prompt, int answer, String leftAnimeImgPath, String rightAnimeImgPath) {
         this.leftAnime = leftAnime;

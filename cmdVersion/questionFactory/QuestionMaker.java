@@ -170,6 +170,7 @@ public class QuestionMaker {
 
     public void fillAnimeList(){
         int amountOfAnimeToAdd = MAX_ANIME_SIZE - this.animeList.size();
+
         for(int i = 0; i < amountOfAnimeToAdd; i++){
             int randNumFromList = getRandomNumberFromList();
             this.animeList.add(new Anime(randNumFromList, false));
@@ -197,6 +198,7 @@ public class QuestionMaker {
         }
 
     }
+
 
 
 

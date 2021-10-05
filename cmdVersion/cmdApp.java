@@ -1,4 +1,5 @@
 package cmdVersion;
+
 import cmdVersion.game.Game;
 import cmdVersion.game.lifeControl.LifeControl;
 import cmdVersion.game.lifeControl.StageLifeControl;
@@ -78,5 +79,4 @@ public class cmdApp {
         game.run();
         // END OF MAIN
     }
-
 }
