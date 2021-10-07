@@ -36,6 +36,17 @@ public class Game_Part {
         button_L.setBounds(120, 80, 195, 277);
         button_R.setBounds(435, 80, 195, 277);
 
+        button_L.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Left Button was clicked.");
+            }
+        });
+        button_R.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Right Button was clicked.");
+            }
+        });
+
         main_game_page.add(button_L);
         main_game_page.add(button_R);
 
