@@ -74,3 +74,12 @@ public class Game_Part {
 
     }
 }
+
+// JButton example_button = new JButton(new AbstractAction(){
+// @Override
+// public void actionPerformed(final ActionEvent e){
+// Text.setText(""+System.currentTimeMillis());
+// }
+// });
+
+// setImage or setImageIcon
