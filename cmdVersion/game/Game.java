@@ -90,8 +90,8 @@ public class Game {
             }
 
             this.update();
-            System.out.println("Anime 1 has rank of " + gameStats.getQuestion().getLeftAnime().get_rating_rank());
-            System.out.println("Anime 2 has rank of " + gameStats.getQuestion().getRightAnime().get_rating_rank());
+            System.out.println("Anime 1 " + gameStats.getQuestion().getLeftAnimeQuestionReleventData());
+            System.out.println("Anime 2 " + gameStats.getQuestion().getRightAnimeQuestionReleventData());
             System.out.println("\nPress enter 1 to continue:\n");
 
             Integer pressToContinue  = input.nextInt();

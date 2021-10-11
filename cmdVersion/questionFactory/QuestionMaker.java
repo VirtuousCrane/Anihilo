@@ -76,7 +76,7 @@ public class QuestionMaker {
             positionalDifference = MEDIUM_POSITIONAL_DIFFERENCE;
         }
 
-        return internalMakeQuestion(positionalDifference, generatedComparator, generatedPrompt, difficulty);
+        return internalMakeQuestion(positionalDifference, generatedComparator, generatedPrompt, difficulty, inType);
     }
 
     // Algorithm for generating question based on difficulty
@@ -84,7 +84,7 @@ public class QuestionMaker {
     // For example if we have a list of 100 anime listed by rank
     // We pick a random number then by random chance move forward/backward by positionalDifference% of the list
     // The two anime will then be selected for making question object
-    public Question internalMakeQuestion(double positionalDifference, Comparator<Anime> comparator, String prompt, String difficulty){
+    public Question internalMakeQuestion(double positionalDifference, Comparator<Anime> comparator, String prompt, String difficulty, String type){
 
         // Generate anime list and sort them
         this.fillAnimeList();
@@ -133,7 +133,7 @@ public class QuestionMaker {
         String anime1ImgPath = this.generateAnimeImagePath(anime1);
         String anime2ImgPath = this.generateAnimeImagePath(anime2);
 
-        return new Question(anime1,anime2,difficulty,prompt,answer, anime1ImgPath, anime2ImgPath);
+        return new Question(anime1,anime2,difficulty,prompt,answer, anime1ImgPath, anime2ImgPath, type);
     }
     // END of internalMakeQuestion()
 
