@@ -11,7 +11,7 @@ import cmdVersion.game.scoreControl.StageScoreControl;
 public class GameFactory {
     public static final String[] gameModes = {"Classic"};
 
-    public Game createGame(String gameModeName){
+    public static Game createGame(String gameModeName){
 
         QuestionControl questionControl;
         ScoreControl scoreControl;

@@ -1,6 +1,7 @@
 package cmdVersion;
 
 import cmdVersion.game.Game;
+import cmdVersion.game.GameFactory;
 import cmdVersion.game.lifeControl.LifeControl;
 import cmdVersion.game.lifeControl.StageLifeControl;
 import cmdVersion.game.questionControl.QuestionControl;
@@ -21,6 +22,10 @@ import javax.swing.*;
 
 public class cmdApp {
     public static void main(String[] args){
+
+        Game game = GameFactory.createGame(GameFactory.gameModes[0]);
+        game.run();
+
 //
 //        // Simple demo
 //        QuestionMaker questionMaker = new QuestionMaker();
@@ -73,12 +78,14 @@ public class cmdApp {
 //            System.out.println("Anime 2 has attribute of " + q.getRightAnime().get_start_date());
 //
 //        }
+        // 2021 Oct 11
+//        QuestionControl questionControl = new StageQuestionControl();
+//        ScoreControl scoreControl = new StageScoreControl();
+//        LifeControl lifeControl = new StageLifeControl();
+//        Game game = new Game(questionControl, lifeControl, scoreControl);
+//        game.run();
 
-        QuestionControl questionControl = new StageQuestionControl();
-        ScoreControl scoreControl = new StageScoreControl();
-        LifeControl lifeControl = new StageLifeControl();
-        Game game = new Game(questionControl, lifeControl, scoreControl);
-        game.run();
+
 //        Anime anime1 = new Anime();
 //        System.out.println(anime1.get_name());
 //        System.out.println(anime1.get_start_date());
