@@ -93,15 +93,15 @@ public class Question {
         this.rightAnimeImgPath = rightAnimeImgPath;
     }
 
-    public String getLeftAnimeQuestionReleventData(){
-        return getAnimeQuestionReleventData(leftAnime);
+    public String getLeftAnimeQuestionRelevantData(){
+        return getAnimeQuestionRelevantData(leftAnime);
     }
 
-    public String getRightAnimeQuestionReleventData(){
-        return getAnimeQuestionReleventData(rightAnime);
+    public String getRightAnimeQuestionRelevantData(){
+        return getAnimeQuestionRelevantData(rightAnime);
     }
 
-    public String getAnimeQuestionReleventData(Anime anime){
+    public String getAnimeQuestionRelevantData(Anime anime){
         String output;
 
         if(type.equalsIgnoreCase(QuestionMaker.questionTypes[0])){

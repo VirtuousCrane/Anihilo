@@ -4,7 +4,6 @@ import cmdVersion.game.lifeControl.LifeControl;
 import cmdVersion.game.questionControl.QuestionControl;
 import cmdVersion.game.scoreControl.ScoreControl;
 import cmdVersion.game.stats.GameStats;
-import cmdVersion.questionFactory.Question;
 import cmdVersion.questionFactory.QuestionMaker;
 
 import javax.swing.*;
@@ -90,8 +89,8 @@ public class Game {
             }
 
             this.update();
-            System.out.println("Anime 1 " + gameStats.getQuestion().getLeftAnimeQuestionReleventData());
-            System.out.println("Anime 2 " + gameStats.getQuestion().getRightAnimeQuestionReleventData());
+            System.out.println("Anime 1 " + gameStats.getQuestion().getLeftAnimeQuestionRelevantData());
+            System.out.println("Anime 2 " + gameStats.getQuestion().getRightAnimeQuestionRelevantData());
             System.out.println("\nPress enter 1 to continue:\n");
 
             Integer pressToContinue  = input.nextInt();
