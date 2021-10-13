@@ -31,7 +31,8 @@ public class Anime extends Kitsu {
     /**
     * The defuault constructor. Gets a random Anime's data
     */
-    public Anime () {
+    public Anime ()
+        throws ConnectionError {
         this (rand.nextInt(3000), false);
         errorCount = 0;
     }
@@ -41,7 +42,8 @@ public class Anime extends Kitsu {
     *
     * @param skip Dictates whether to skip the anime upon failure or get a new id
     */
-    public Anime (boolean skip) {
+    public Anime (boolean skip)
+        throws ConnectionError {
         this (rand.nextInt(3000), skip);
         errorCount = 0;
     }
@@ -52,7 +54,8 @@ public class Anime extends Kitsu {
     * @param rand_id The Anime's id.
     * @param skip    Dictates whether to skip the anime upon failure or get a new id
     */
-    public Anime (int rand_id, boolean skip) {
+    public Anime (int rand_id, boolean skip)
+        throws ConnectionError {
         int rand_num = rand_id;
         while (true) {
             try {
@@ -77,13 +80,14 @@ public class Anime extends Kitsu {
                 break;
             } catch (Exception e) {
                 errorCount += 1;
+
+                if (errorCount >= 1) {
+                    throw new ConnectionError("Connection Error");
+                }
+
                 System.out.println ("Error, trying again");
                 if (!skip) {
                     rand_num = rand.nextInt(3000);
-                }
-
-                if (errorCount >= 10) {
-                    throw new ConnectionError("Connection Error");
                 }
             }
         }
