@@ -28,6 +28,10 @@ public class Game {
         this.gameStats = new GameStats();
     }
 
+    public Game(Game another) throws ConnectionError{
+        this(another.questionControl, another.lifeControl, another.scoreControl);
+    }
+
     public void update(){
         this.questionControl.update(this.gameStats);
         this.lifeControl.update(this.gameStats);
@@ -118,6 +122,7 @@ public class Game {
             System.out.println(this.toString());
 
         }
-        System.out.println("Game over");
+        System.out.println("End of game.run()");
+        frame.dispose();
     }
 }
