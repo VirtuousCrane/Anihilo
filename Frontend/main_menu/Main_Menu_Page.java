@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import Frontend.utility.Page_Changer;
 
 import javax.swing.AbstractAction;
 
@@ -30,7 +31,8 @@ public class Main_Menu_Page {
         start_game.setBounds(225, 230, 300, 30);
         start_game.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                page.show(main_page, "page2");
+                Page_Changer.set_page("page2");
+                Page_Changer.Change(main_page, page);
             }
         });
 

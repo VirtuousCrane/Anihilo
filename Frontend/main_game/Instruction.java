@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import Frontend.utility.LineBreaker;
+import Frontend.utility.Page_Changer;
 
 public class Instruction {
     public Instruction(JPanel main_game_page, JPanel main_page, CardLayout page) {
@@ -19,7 +20,8 @@ public class Instruction {
         back_button.setBounds(10, 10, 100, 20);
         back_button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                page.show(main_page, "page1");
+                Page_Changer.set_page("page1");
+                Page_Changer.Change(main_page, page);
             }
         });
         main_game_page.add(back_button);
