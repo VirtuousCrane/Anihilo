@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import utility.LineBreaker;
+import Frontend.utility.LineBreaker;
 
 public class Instruction {
     public Instruction(JPanel main_game_page, JPanel main_page, CardLayout page) {
