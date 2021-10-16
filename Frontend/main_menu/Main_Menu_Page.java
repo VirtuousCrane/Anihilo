@@ -19,7 +19,7 @@ public class Main_Menu_Page {
         menu.setBounds(0, 0, 750, 600);
 
         // Put the icon in the Main_menu
-        ImageIcon icon = new ImageIcon("Frontend/src/main_menu/Higher_Lower_Icon.png");
+        ImageIcon icon = new ImageIcon("Frontend/main_menu/Higher_Lower_Icon.png");
         JLabel icon_space = new JLabel(icon);
         icon_space.setBounds(165, 40, 420, 170);
 
