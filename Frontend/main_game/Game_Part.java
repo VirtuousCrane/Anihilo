@@ -3,12 +3,11 @@ package Frontend.main_game;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Image;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import Frontend.utility.LineBreaker;
+import Frontend.utility.Image_Changer;
 
 public class Game_Part {
     public Game_Part(JPanel main_game_page, JPanel main_page, CardLayout page) {
@@ -21,28 +20,24 @@ public class Game_Part {
         // medium (390x554)
         // small (110x156)
 
-        Image get_pic_L = new ImageIcon("Frontend/src/Main_Game/Example_photo.jpg").getImage();
-        Image get_pic_R = new ImageIcon("Frontend/src/Main_Game/Example_photo.jpg").getImage();
+        // * Goto Utility Image_Changer for more info
+        Image_Changer img = new Image_Changer();
 
-        Image resize_L = get_pic_L.getScaledInstance(195, 277, Image.SCALE_DEFAULT);
-        Image resize_R = get_pic_R.getScaledInstance(195, 277, Image.SCALE_DEFAULT);
-
-        ImageIcon resizePic_L = new ImageIcon(resize_L);
-        ImageIcon resizePic_R = new ImageIcon(resize_R);
-
-        JButton button_L = new JButton(resizePic_L);
-        JButton button_R = new JButton(resizePic_R);
+        JButton button_L = new JButton(img.getImage_L());
+        JButton button_R = new JButton(img.getImage_R());
 
         button_L.setBounds(120, 80, 195, 277);
         button_R.setBounds(435, 80, 195, 277);
 
         button_L.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                button_L.setIcon(img.getImage_L());
                 System.out.println("Left Button was clicked.");
             }
         });
         button_R.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                button_R.setIcon(img.getImage_R());
                 System.out.println("Right Button was clicked.");
             }
         });
@@ -74,12 +69,3 @@ public class Game_Part {
 
     }
 }
-
-// JButton example_button = new JButton(new AbstractAction(){
-// @Override
-// public void actionPerformed(final ActionEvent e){
-// Text.setText(""+System.currentTimeMillis());
-// }
-// });
-
-// setImage or setImageIcon
