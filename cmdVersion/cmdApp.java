@@ -11,6 +11,7 @@ import cmdVersion.game.scoreControl.StageScoreControl;
 import cmdVersion.questionFactory.Question;
 import cmdVersion.questionFactory.QuestionMaker;
 import connection.Anime;
+import connection.ConnectionError;
 
 import java.awt.*;
 import java.time.LocalDate;
@@ -23,8 +24,13 @@ import javax.swing.*;
 public class cmdApp {
     public static void main(String[] args){
 
-        Game game = GameFactory.createGame(GameFactory.gameModes[0]);
-        game.run();
+        try {
+            Game game = GameFactory.createGame(GameFactory.gameModes[0]);
+            game.run();
+        } catch (ConnectionError e) {
+            System.out.println("Connection error at cmdApp");
+        }
+
 
 //
 //        // Simple demo

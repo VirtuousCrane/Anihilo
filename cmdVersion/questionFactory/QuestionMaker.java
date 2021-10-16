@@ -3,6 +3,7 @@ import cmdVersion.questionFactory.animeComparator.popularityRankAnimeComparator;
 import cmdVersion.questionFactory.animeComparator.ratingRankAnimeComparator;
 import cmdVersion.questionFactory.animeComparator.startDateAnimeComparator;
 import connection.Anime;
+import connection.ConnectionError;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -30,13 +31,13 @@ public class QuestionMaker {
     public static final String animeImgFolderPath = "animeImage\\"; // This is from source root which the "Anihilo" so this represent Anihilo\animeImg\
     public static final String animeImgFileExtension = ".jpg";
 
-    public QuestionMaker(){
+    public QuestionMaker() throws ConnectionError {
         this.generateRandomNumberList();
         this.fillAnimeList();
     }
 
     // Generate Question with random difficulty and type
-    public Question makeQuestion(){
+    public Question makeQuestion() throws ConnectionError {
         Random random = new Random();
         int randomDifficultyIndex = random.nextInt(difficultyLevels.length);
         String randomDifficulty = difficultyLevels[randomDifficultyIndex];
@@ -44,7 +45,7 @@ public class QuestionMaker {
 
     }
 //  Generate Question() with determined difficulty and random type
-    public Question makeQuestion(String difficulty){
+    public Question makeQuestion(String difficulty) throws ConnectionError {
         Random random = new Random();
         int randomTypeIndex = random.nextInt(questionTypes.length);
         String randomType = questionTypes[randomTypeIndex];
@@ -53,7 +54,7 @@ public class QuestionMaker {
 
 
 //  Generate Question() with determined difficulty and type
-    public Question makeQuestion(String difficulty, String inType) {
+    public Question makeQuestion(String difficulty, String inType) throws ConnectionError {
         String generatedPrompt = QuestionMaker.getPrompt(inType);
         Comparator<Anime> generatedComparator = QuestionMaker.getComparator(inType);
         double positionalDifference;
@@ -84,7 +85,7 @@ public class QuestionMaker {
     // For example if we have a list of 100 anime listed by rank
     // We pick a random number then by random chance move forward/backward by positionalDifference% of the list
     // The two anime will then be selected for making question object
-    public Question internalMakeQuestion(double positionalDifference, Comparator<Anime> comparator, String prompt, String difficulty, String type){
+    public Question internalMakeQuestion(double positionalDifference, Comparator<Anime> comparator, String prompt, String difficulty, String type) throws ConnectionError {
 
         // Generate anime list and sort them
         this.fillAnimeList();
@@ -171,7 +172,7 @@ public class QuestionMaker {
     }
 
 
-    public void fillAnimeList(){
+    public void fillAnimeList() throws ConnectionError {
         int amountOfAnimeToAdd = MAX_ANIME_SIZE - this.animeList.size();
 
         for(int i = 0; i < amountOfAnimeToAdd; i++){

@@ -5,22 +5,27 @@ import cmdVersion.game.questionControl.QuestionControl;
 import cmdVersion.game.scoreControl.ScoreControl;
 import cmdVersion.game.stats.GameStats;
 import cmdVersion.questionFactory.QuestionMaker;
+import connection.ConnectionError;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Scanner;
 
 public class Game {
-    QuestionMaker questionMaker = new QuestionMaker();
-    GameStats gameStats = new GameStats();
+    QuestionMaker questionMaker;
+    GameStats gameStats;
     QuestionControl questionControl;
     LifeControl lifeControl;
     ScoreControl scoreControl;
 
-    public Game(QuestionControl questionControl, LifeControl lifeControl, ScoreControl scoreControl) {
+    public Game(QuestionControl questionControl, LifeControl lifeControl, ScoreControl scoreControl) throws ConnectionError {
         this.questionControl = questionControl;
         this.lifeControl = lifeControl;
         this.scoreControl = scoreControl;
+
+        // Default creation
+        this.questionMaker = new QuestionMaker();
+        this.gameStats = new GameStats();
     }
 
     public void update(){
@@ -62,7 +67,22 @@ public class Game {
         while(lifeControl.isAlive()){
             String questionDifficulty = questionControl.getQuestionDifficulty();
             String questionType = questionControl.getQuestionType();
-            gameStats.setQuestion(this.questionMaker.makeQuestion(questionDifficulty, questionType));
+
+            // Making sure there is no connection problem
+            boolean questionIsGenerated = false;
+            while(! questionIsGenerated){
+                try {
+                    gameStats.setQuestion(this.questionMaker.makeQuestion(questionDifficulty, questionType));
+                    questionIsGenerated = true;
+                } catch (ConnectionError e){
+                    System.out.println("Error: Connection problem cannot access Kitsu");
+                    System.out.println("Please reconnect your internet and press 1 to cotinue: ");
+                    input.nextLine();
+                }
+
+            }
+
+
 
             // Updating view
             ImageIcon imageLeft = new ImageIcon(gameStats.getQuestion().getLeftAnimeImgPath());

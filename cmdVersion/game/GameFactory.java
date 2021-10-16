@@ -6,12 +6,13 @@ import cmdVersion.game.questionControl.QuestionControl;
 import cmdVersion.game.questionControl.StageQuestionControl;
 import cmdVersion.game.scoreControl.ScoreControl;
 import cmdVersion.game.scoreControl.StageScoreControl;
+import connection.ConnectionError;
 
 
 public class GameFactory {
     public static final String[] gameModes = {"Classic"};
 
-    public static Game createGame(String gameModeName){
+    public static Game createGame(String gameModeName) throws ConnectionError {
 
         QuestionControl questionControl;
         ScoreControl scoreControl;
