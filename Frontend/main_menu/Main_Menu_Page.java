@@ -3,16 +3,15 @@ package Frontend.main_menu;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import Frontend.utility.Page_Changer;
 
-import javax.swing.AbstractAction;
-
 public class Main_Menu_Page {
-    public static JPanel Main_Menu(JPanel main_page, CardLayout page) {
+    public static JPanel Main_Menu(JPanel main_page, CardLayout page, JFrame main) {
 
         JPanel menu = new JPanel();
 
@@ -36,7 +35,16 @@ public class Main_Menu_Page {
             }
         });
 
+        JButton quit_game = new JButton("Quit");
+        quit_game.setBounds(225, 300, 300, 30);
+        quit_game.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
         menu.add(start_game);
+        menu.add(quit_game);
 
         main_page.add(menu);
 
