@@ -1,7 +1,7 @@
-package cmdVersion.questionFactory;
-import cmdVersion.questionFactory.animeComparator.popularityRankAnimeComparator;
-import cmdVersion.questionFactory.animeComparator.ratingRankAnimeComparator;
-import cmdVersion.questionFactory.animeComparator.startDateAnimeComparator;
+package cmdVersion.game.questionFactory;
+import cmdVersion.game.questionFactory.animeComparator.popularityRankAnimeComparator;
+import cmdVersion.game.questionFactory.animeComparator.ratingRankAnimeComparator;
+import cmdVersion.game.questionFactory.animeComparator.startDateAnimeComparator;
 import connection.Anime;
 import connection.ConnectionError;
 

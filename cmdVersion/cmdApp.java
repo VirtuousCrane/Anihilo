@@ -2,24 +2,9 @@ package cmdVersion;
 
 import cmdVersion.game.Game;
 import cmdVersion.game.GameFactory;
-import cmdVersion.game.lifeControl.LifeControl;
-import cmdVersion.game.lifeControl.StageLifeControl;
-import cmdVersion.game.questionControl.QuestionControl;
-import cmdVersion.game.questionControl.StageQuestionControl;
-import cmdVersion.game.scoreControl.ScoreControl;
-import cmdVersion.game.scoreControl.StageScoreControl;
-import cmdVersion.questionFactory.Question;
-import cmdVersion.questionFactory.QuestionMaker;
-import connection.Anime;
 import connection.ConnectionError;
 
-import java.awt.*;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Scanner;
-import javax.swing.*;
 
 public class cmdApp {
     public static void main(String[] args){

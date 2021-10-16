@@ -1,7 +1,7 @@
 package cmdVersion.game.questionControl;
 
 import cmdVersion.game.stats.GameStats;
-import cmdVersion.questionFactory.QuestionMaker;
+import cmdVersion.game.questionFactory.QuestionMaker;
 import java.util.Random;
 
 public class StageQuestionControl extends QuestionControl {

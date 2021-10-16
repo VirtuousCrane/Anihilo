@@ -4,7 +4,7 @@ import cmdVersion.game.lifeControl.LifeControl;
 import cmdVersion.game.questionControl.QuestionControl;
 import cmdVersion.game.scoreControl.ScoreControl;
 import cmdVersion.game.stats.GameStats;
-import cmdVersion.questionFactory.QuestionMaker;
+import cmdVersion.game.questionFactory.QuestionMaker;
 import connection.ConnectionError;
 
 import javax.swing.*;

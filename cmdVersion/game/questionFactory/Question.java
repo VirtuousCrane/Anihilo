@@ -1,4 +1,4 @@
-package cmdVersion.questionFactory;
+package cmdVersion.game.questionFactory;
 import connection.Anime;
 
 public class Question {

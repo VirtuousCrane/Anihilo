@@ -1,4 +1,4 @@
-package cmdVersion.questionFactory.animeComparator;
+package cmdVersion.game.questionFactory.animeComparator;
 
 import connection.Anime;
 import java.util.Comparator;
