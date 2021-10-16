@@ -75,9 +75,9 @@ public class Game {
                     gameStats.setQuestion(this.questionMaker.makeQuestion(questionDifficulty, questionType));
                     questionIsGenerated = true;
                 } catch (ConnectionError e){
-                    System.out.println("Error: Connection problem cannot access Kitsu");
+                    System.out.println("Error: Connection problem at game.run()");
                     System.out.println("Please reconnect your internet and press 1 to cotinue: ");
-                    input.nextLine();
+                    String stopper = input.nextLine();
                 }
 
             }
@@ -98,7 +98,7 @@ public class Game {
             System.out.println("Anime 2: " + gameStats.getQuestion().getRightAnime().get_name());
 
             System.out.print("\n Type -1 for Anime 1, and 1 for Anime 2: ");
-            userAnswer = input.nextInt();
+            userAnswer = Integer.parseInt(input.nextLine());
 
             if(gameStats.getQuestion().checkAnswer(userAnswer)){
                 System.out.println("Correct!");
@@ -113,7 +113,7 @@ public class Game {
             System.out.println("Anime 2 " + gameStats.getQuestion().getRightAnimeQuestionRelevantData());
             System.out.println("\nPress enter 1 to continue:\n");
 
-            Integer pressToContinue  = input.nextInt();
+            Integer pressToContinue  = Integer.parseInt(input.nextLine());
 
             System.out.println(this.toString());
 

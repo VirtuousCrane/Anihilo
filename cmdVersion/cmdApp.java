@@ -23,13 +23,23 @@ import javax.swing.*;
 
 public class cmdApp {
     public static void main(String[] args){
+        Game game = null;
+        Scanner stopBreak = new Scanner(System.in);
 
-        try {
-            Game game = GameFactory.createGame(GameFactory.gameModes[0]);
-            game.run();
-        } catch (ConnectionError e) {
-            System.out.println("Connection error at cmdApp");
+        boolean isGameGenerated = false;
+        while(! isGameGenerated){
+            try {
+                game = GameFactory.createGame(GameFactory.gameModes[0]);
+                isGameGenerated = true;
+            } catch (ConnectionError e) {
+                System.out.println("Connection error at cmdApp");
+                System.out.println("Please reconnect then press 1 and enter to continue: ");
+                stopBreak.nextLine();
+            }
         }
+
+        game.run();
+
 
 
 //
