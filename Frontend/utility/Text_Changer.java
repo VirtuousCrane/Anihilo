@@ -1,18 +1,12 @@
 package Frontend.utility;
 
-import javax.swing.JLabel;
-import Frontend.main_game.Instruction;
-
 public class Text_Changer {
     String instruction = "";
     String animeTitle_L = "";
     String animeTitle_R = "";
-    JLabel instruction_text = Instruction.get_instruction();
 
-    public void change_instruction() {
-        instruction = LineBreaker.breaker(instruction, 30);
-        instruction_text
-                .setText("<html><p{text-alignment: center;} style=\"font-size:18px\">" + instruction + "</p></html>");
+    public String get_instruction() {
+        return instruction;
     }
 
     public String get_animeTitle_L() {
