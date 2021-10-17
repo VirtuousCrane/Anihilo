@@ -10,17 +10,16 @@ import java.util.Scanner;
 public class Menu {
     public static final int EXIT = 0;
 
-
-
     public void showMainMenu() {
         Scanner input = new Scanner(System.in);
         Integer userInput = -1;
 
+
         while(userInput != EXIT) {
-            System.out.println("Main menu page");
+            System.out.println("Main menu page (Show the main menu page)");
             System.out.println("0. Exit");
             System.out.println("1. Play");
-            System.out.println("Select your option: ");
+            System.out.println("Select your option: (At this point the algorithm is waiting for a user to press button)");
             userInput = Integer.parseInt(input.nextLine());
 
 
