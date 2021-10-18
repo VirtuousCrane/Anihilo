@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
-import Frontend.utility.LineBreaker;
 import Frontend.utility.Image_Changer;
 import Frontend.utility.Instruction_Changer;
 import Frontend.utility.AnimeTitle_Changer;
@@ -35,7 +34,7 @@ public class Game_Part {
         button_L.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 button_L.setIcon(img.getImage_L());
-                // Testing for change
+                // Testing for change (delete for final)
                 System.out.println("Left Button was clicked.");
                 Instruction_Changer.set_instruction("a new world");
                 // end
@@ -46,7 +45,7 @@ public class Game_Part {
         button_R.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 button_R.setIcon(img.getImage_R());
-                // Testing for change
+                // Testing for change (delete for final)
                 System.out.println("Right Button was clicked.");
                 Instruction_Changer.set_instruction("and a new experience");
                 // end
