@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import Frontend.utility.LineBreaker;
 import Frontend.utility.Image_Changer;
 import Frontend.utility.Instruction_Changer;
+import Frontend.utility.AnimeTitle_Changer;
 
 public class Game_Part {
     public Game_Part(JPanel main_game_page, JPanel main_page, CardLayout page) {
@@ -33,17 +34,23 @@ public class Game_Part {
         button_L.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 button_L.setIcon(img.getImage_L());
-                System.out.println("Left Button was clicked."); // texting
-                Instruction_Changer.set_instruction("a new world"); // texting
+                // Testing for change
+                System.out.println("Left Button was clicked.");
+                Instruction_Changer.set_instruction("a new world");
+                // end
                 Instruction_Changer.change_instruction();
+                AnimeTitle_Changer.changeAnimeTitle();
             }
         });
         button_R.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 button_R.setIcon(img.getImage_R());
-                System.out.println("Right Button was clicked."); // texting
-                Instruction_Changer.set_instruction("and a new experience"); // texting
+                // Testing for change
+                System.out.println("Right Button was clicked.");
+                Instruction_Changer.set_instruction("and a new experience");
+                // end
                 Instruction_Changer.change_instruction();
+                AnimeTitle_Changer.changeAnimeTitle();
             }
         });
 
@@ -71,6 +78,6 @@ public class Game_Part {
 
         main_game_page.add(aniPanel_L);
         main_game_page.add(aniPanel_R);
-
+        new AnimeTitle_Changer(aniL_text, aniR_text);
     }
 }
