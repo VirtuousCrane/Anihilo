@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import Frontend.utility.LineBreaker;
 import Frontend.utility.Page_Changer;
 
+import Frontend.utility.Instruction_Changer;
+
 public class Instruction {
     public Instruction(JPanel main_game_page, JPanel main_page, CardLayout page) {
 
@@ -46,5 +48,6 @@ public class Instruction {
         instruction_panel.add(instruction_text);
         diff_panel.add(diff_text);
         main_game_page.add(diff_panel);
+        new Instruction_Changer(instruction_text, diff_text);
     }
 }
