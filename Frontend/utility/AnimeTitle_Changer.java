@@ -15,9 +15,9 @@ public class AnimeTitle_Changer {
 
     // will change both anime title once the button is click (already implement)
     public static void changeAnimeTitle() {
-        animeTitle_L = LineBreaker.breaker(animeTitle_L, 30);
+        animeTitle_L = LineBreaker.breaker(animeTitle_L, 25);
         aniL.setText("<html><p{text-alignment: center;} style=\"font-size:12px\">" + animeTitle_L + "</p></html>");
-        animeTitle_R = LineBreaker.breaker(animeTitle_R, 30);
+        animeTitle_R = LineBreaker.breaker(animeTitle_R, 25);
         aniR.setText("<html><p{text-alignment: center;} style=\"font-size:12px\">" + animeTitle_R + "</p></html>");
     }
 
