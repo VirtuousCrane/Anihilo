@@ -4,7 +4,7 @@ import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 public class Main_Game_Page {
-        public static JPanel Main_Game(JPanel main_page, CardLayout page) {
+        public static JPanel main_Game(JPanel main_page, CardLayout page) {
                 JPanel menu = new JPanel();
                 menu.setBounds(0, 0, 750, 600);
                 menu.setLayout(null);

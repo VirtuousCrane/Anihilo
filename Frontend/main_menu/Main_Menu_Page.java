@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 import Frontend.utility.Page_Changer;
 
 public class Main_Menu_Page {
-    public static JPanel Main_Menu(JPanel main_page, CardLayout page, JFrame main) {
+    public static JPanel main_Menu(JPanel main_page, CardLayout page, JFrame main) {
 
         JPanel menu = new JPanel();
 
@@ -31,7 +31,7 @@ public class Main_Menu_Page {
         start_game.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Page_Changer.set_page("page2");
-                Page_Changer.Change(main_page, page);
+                Page_Changer.change(main_page, page);
             }
         });
 
