@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 public class Page_Changer {
     static String num_page;
 
-    public static void change(JPanel main_page, CardLayout page) {
+    public static void Change(JPanel main_page, CardLayout page) {
         page.show(main_page, num_page);
     }
 

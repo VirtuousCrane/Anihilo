@@ -19,7 +19,7 @@ public class Instruction {
         back_button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Page_Changer.set_page("page1");
-                Page_Changer.change(main_page, page);
+                Page_Changer.Change(main_page, page);
             }
         });
         main_game_page.add(back_button);
