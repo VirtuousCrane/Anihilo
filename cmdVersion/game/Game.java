@@ -2,6 +2,7 @@ package cmdVersion.game;
 
 import cmdVersion.game.lifeControl.LifeControl;
 import cmdVersion.game.questionControl.QuestionControl;
+import cmdVersion.game.questionFactory.Question;
 import cmdVersion.game.scoreControl.ScoreControl;
 import cmdVersion.game.stats.GameStats;
 import cmdVersion.game.questionFactory.QuestionMaker;
@@ -152,5 +153,57 @@ public class Game {
         }
         System.out.println("End of game.run()");
         frame.dispose();
+    }
+
+    private void generateQuestion(){
+        Scanner input = new Scanner(System.in);
+        String questionDifficulty = questionControl.getQuestionDifficulty();
+        String questionType = questionControl.getQuestionType();
+
+        boolean questionIsGenerated = false;
+        while(! questionIsGenerated){
+            try {
+                gameStats.setQuestion(this.questionMaker.makeQuestion(questionDifficulty, questionType));
+                questionIsGenerated = true;
+            } catch (ConnectionError e){
+                System.out.println("Error: Connection problem at game.run()");
+                System.out.println("Please reconnect your internet and press 1 to cotinue: ");
+                String stopper = input.nextLine();
+            }
+        }
+    }
+
+    private void answerQuestion(Integer userAnswer){
+        if(gameStats.getQuestion().checkAnswer(userAnswer)){
+            System.out.println("Correct!");
+            this.gameStats.answeredCorrect();
+        } else {
+            System.out.println("Wrong");
+            this.gameStats.answeredWrong();
+        }
+    }
+
+    // This function would have its print statement replaced the by GUI function like GUI.setLeftAnimeImage()
+    private void displayQuestion(){
+        Question currentQuestion = gameStats.getQuestion();
+        System.out.println("Update prompt to: " + currentQuestion.getPrompt());
+        System.out.println("Update the leftAnimeImgButton to: " + currentQuestion.getLeftAnimeImgPath());
+        System.out.println("Update the rightAnimeImgButton to: " + currentQuestion.getRightAnimeImgPath());
+        System.out.println("Update the leftAnimeTitle to: " + currentQuestion.getLeftAnime().get_name());
+        System.out.println("Update the leftAnimeTitle to: " + currentQuestion.getRightAnime().get_name());
+    }
+
+    // This function would have its print statement replaced by the GUI function like GUI.setAccuracy()
+    private void displayStats(){
+        System.out.println("Update guess to: " + gameStats.getGuessAmount());
+        System.out.println("Update accuracy to: " + gameStats.getGuessAccuracy());
+        System.out.println("Update score to: " + scoreControl.calculateScore());
+    }
+
+    private void initializeGame(){
+        System.out.println("About to initialize the game");
+        this.generateQuestion();
+
+
     }
 }

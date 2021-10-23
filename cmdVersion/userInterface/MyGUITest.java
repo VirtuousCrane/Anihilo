@@ -1,19 +1,36 @@
 package cmdVersion.userInterface;
 
+import Frontend.GUI;
+import cmdVersion.game.GameFactory;
+import connection.ConnectionError;
+
 import javax.swing.*;
 
 public class MyGUITest {
     public static void main(String[] args){
-        JFrame main_page = new JFrame();
+        GUI gui = null;
+        try{
+            gui = new GUI();
+        } catch (Exception e){
+            System.out.println(e);
+        }
 
-        // * Setting Frame Size and etc
-        main_page.setSize(750, 600);
-        main_page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        main_page.setLayout(null);
-        
+        if(gui == null){
+            return;
+        }
 
 
-        // * set Title
-        main_page.setTitle("Higher or Lower");
+        // Creating the game
+        try{
+            GameFactory.createGame(GameFactory.gameModes[0]);
+        } catch (ConnectionError e){
+            System.out.println(e.toString());
+        }
+
+
+
+
+
+
     }
 }
