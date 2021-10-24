@@ -1,29 +1,34 @@
 package cmdVersion;
 
+import Frontend.GUI;
 import cmdVersion.game.Game;
 import cmdVersion.game.GameFactory;
 import connection.ConnectionError;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Scanner;
 
 public class cmdApp {
     public static void main(String[] args){
+        GUI gui = null;
         Game game = null;
-        Scanner stopBreak = new Scanner(System.in);
-
-        boolean isGameGenerated = false;
-        while(! isGameGenerated){
-            try {
-                game = GameFactory.createGame(GameFactory.gameModes[0]);
-                isGameGenerated = true;
-            } catch (ConnectionError e) {
-                System.out.println("Connection error at cmdApp");
-                System.out.println("Please reconnect then press 1 and enter to continue: ");
-                stopBreak.nextLine();
-            }
+        try {
+            gui = new GUI();
+            game = GameFactory.createGame(GameFactory.gameModes[0]);
+        }
+        catch (ConnectionError e){
+            System.out.println(e);
+        } catch (Exception e){
+            System.out.println(e);
         }
 
-        game.run();
+
+
+
+
+
 
 
 
