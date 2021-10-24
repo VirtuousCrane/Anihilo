@@ -5,11 +5,13 @@ import java.awt.Color;
 import javax.swing.border.MatteBorder;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import Frontend.utility.Life_Changer;
 import Frontend.utility.Score_Changer;
 import Frontend.utility.Utils;
 
 public class Score_Part {
         Score_Changer scoreChanger;
+        Life_Changer lifeChanger;
 
         /**
          * Constructs a section that shows the score of the player
@@ -20,6 +22,15 @@ public class Score_Part {
          */
         public Score_Part(JPanel main_game_page, JPanel main_page, CardLayout page) {
                 // * Create Border
+                // * Panel for life
+                JPanel life_border = new JPanel();
+                life_border.setBounds(0, 421, 80, 30);
+                life_border.setBorder(new MatteBorder(1, 1, 1, 1, Color.black));
+
+                JLabel life = new JLabel(Utils.toHTML("<p style='font-size:10px;text-align:center;'>Life 0</p>"));
+
+                life_border.add(life);
+                main_game_page.add(life_border);
                 // * Panel for score
                 JPanel score_border = new JPanel();
                 score_border.setBounds(0, 450, 250, 150);
@@ -54,9 +65,14 @@ public class Score_Part {
                 main_game_page.add(accuracy_border);
 
                 scoreChanger = new Score_Changer(score, guess, accuracy);
+                lifeChanger = new Life_Changer(life);
         }
 
         public Score_Changer getScoreChanger() {
                 return scoreChanger;
+        }
+
+        public Life_Changer getLifeChanger() {
+                return lifeChanger;
         }
 }
