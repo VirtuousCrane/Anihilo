@@ -85,7 +85,7 @@ public class GameStats {
                 ;
     }
 
-    // Reset to initial state 
+    // Reset to initial state
     public void reset(){
         guessAmount = 0;
         guessCorrect = 0;

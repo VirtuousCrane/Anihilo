@@ -185,6 +185,14 @@ public class Game {
         this.scoreControl.update(this.gameStats);
     }
 
+    // Reset the game back to the initial state
+    private void resetGame(){
+        lifeControl.reset();
+        questionControl.reset();
+        scoreControl.reset();
+        gameStats.reset();
+    }
+
     // Answer the question,update control object, tell user the answer, update current game state
     private void answerQuestion(Integer userAnswer){
         if(! currentGameState.equals(GAME_STATE_ANSWERING)){
@@ -239,6 +247,11 @@ public class Game {
         clickToProceed.nextLine();
     }
 
+    private void displayGameOver(){
+        System.out.println("GUI updates the prompt to: GAME OVER!");
+        System.out.println("GUI updates the leftAnimeImg");
+    }
+
     // Interact-able methods or buttons
 
     public void initializeGame(){
@@ -246,7 +259,7 @@ public class Game {
         this.generateQuestion();
         this.displayQuestion();
         this.displayStats();
-
+        currentGameState = GAME_STATE_ANSWERING;
     }
 
     public void clickButtonLeftAnimeImg(){
@@ -263,16 +276,18 @@ public class Game {
         if(! currentGameState.equals(GAME_STATE_LOOK_AT_RESULT)){
             System.out.println("User clicked buttonNextQuestion at wrong game state(intCode); GameState(IntCode): " + currentGameState);
             return;
+        } else if (! lifeControl.isAlive()){ // Player has met the losing condition
+
+        }else { // Player keep playing
+            currentGameState = GAME_STATE_WAITING;
+
+            System.out.println("GUI set background color: White/Grey");
+            this.generateQuestion();
+            this.displayQuestion();
+            this.displayStats();
+
+            currentGameState = GAME_STATE_ANSWERING;
         }
-
-        currentGameState = GAME_STATE_WAITING;
-
-        System.out.println("GUI set background color: White/Grey");
-        this.generateQuestion();
-        this.displayQuestion();
-        this.displayStats();
-
-        currentGameState = GAME_STATE_ANSWERING;
     }
 
     // Clicked the button
@@ -280,12 +295,9 @@ public class Game {
 
     }
 
-    // Button which
-    public void clickButtonGameOver(){
-
-    }
-
     public void clickButtonResetGame(){
-
+        currentGameState = GAME_STATE_WAITING;
+        this.resetGame();
+        this.initializeGame();
     }
 }
