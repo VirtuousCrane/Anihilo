@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.net.*;
 
 public class Anime extends Kitsu {
+    static final Integer MAX_ATTEMPT_BEFORE_CONNECTION_ERROR = 10;
     static Random rand = new Random();
     String name;
     String en_name;
@@ -25,13 +26,16 @@ public class Anime extends Kitsu {
     int popularityRank;
     int episode_no;
     int kitsuId;
+    int errorCount;
     double averageRating;
 
     /**
     * The defuault constructor. Gets a random Anime's data
     */
-    public Anime () {
+    public Anime ()
+        throws ConnectionError {
         this (rand.nextInt(3000), false);
+        errorCount = 0;
     }
 
     /**
@@ -39,8 +43,10 @@ public class Anime extends Kitsu {
     *
     * @param skip Dictates whether to skip the anime upon failure or get a new id
     */
-    public Anime (boolean skip) {
+    public Anime (boolean skip)
+        throws ConnectionError {
         this (rand.nextInt(3000), skip);
+        errorCount = 0;
     }
 
     /**
@@ -49,7 +55,8 @@ public class Anime extends Kitsu {
     * @param rand_id The Anime's id.
     * @param skip    Dictates whether to skip the anime upon failure or get a new id
     */
-    public Anime (int rand_id, boolean skip) {
+    public Anime (int rand_id, boolean skip)
+        throws ConnectionError {
         int rand_num = rand_id;
         while (true) {
             try {
@@ -73,6 +80,12 @@ public class Anime extends Kitsu {
                 large_img_link = map.get ("large");
                 break;
             } catch (Exception e) {
+                errorCount += 1;
+
+                if (errorCount >= MAX_ATTEMPT_BEFORE_CONNECTION_ERROR) {
+                    throw new ConnectionError("Connection Error");
+                }
+
                 System.out.println ("Error, trying again");
                 if (!skip) {
                     rand_num = rand.nextInt(3000);
@@ -208,16 +221,14 @@ public class Anime extends Kitsu {
             return false;
         }
 
-/*        try {
-            Thread.sleep(500);
-        } catch (InterruptedException ex) {
-            System.out.println (ex);
-            return false;
-        }
-*/
         return true;
     }
 
+    /**
+    * Returns the information of the Anime in String format
+    *
+    * @return   A String containing the information of the Anime.
+    */
     public String toString() {
         if (retStr != null) {
             return retStr;
