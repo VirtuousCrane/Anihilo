@@ -213,6 +213,7 @@ public class Game {
 
         this.updateControlObject();
         this.displayUserAnswerCorrectOrWrong();
+        this.displayAnswer();
 
         currentGameState = GAME_STATE_LOOK_AT_RESULT;
     }
@@ -224,7 +225,7 @@ public class Game {
         System.out.println("Update the leftAnimeImgButton to: " + currentQuestion.getLeftAnimeImgPath());
         System.out.println("Update the rightAnimeImgButton to: " + currentQuestion.getRightAnimeImgPath());
         System.out.println("Update the leftAnimeTitle to: " + currentQuestion.getLeftAnime().get_name());
-        System.out.println("Update the leftAnimeTitle to: " + currentQuestion.getRightAnime().get_name());
+        System.out.println("Update the rightAnimeTitle to: " + currentQuestion.getRightAnime().get_name());
     }
 
     // This function would have its print statement replaced by the GUI function like GUI.setAccuracy()
@@ -258,6 +259,13 @@ public class Game {
         System.out.println("GUI updates the rightAnimeTitle to: To play again press the reset button");
     }
 
+    // This will update the GUI with info relevant question for the anime
+    // Ex: If Qn ask about which anime came out first, this will update with leftAnime 2001-02-03 and rightAnime 2005-07-16
+    private void displayAnswer(){
+        System.out.println("GUI update the leftAnimeQuestionRelevantInfo: " + gameStats.getQuestion().getLeftAnimeQuestionRelevantData());
+        System.out.println("GUI update the rightAnimeQuestionRelevantInfo: " + gameStats.getQuestion().getRightAnimeQuestionRelevantData());
+    }
+
     // Interact-able methods or buttons
 
     public void initializeGame(){
@@ -280,8 +288,8 @@ public class Game {
     // To allow user to see whether they answer correctly
     public void clickButtonNextQuestion(){
         if(! currentGameState.equals(GAME_STATE_LOOK_AT_RESULT)){
-            System.out.println("User clicked buttonNextQuestion at wrong game state(intCode); GameState(IntCode): " + currentGameState);
-            return;
+            System.out.println("User clicked buttonNextQuestion at wrong game state GameState(IntCode): " + currentGameState);
+
         } else if (! lifeControl.isAlive()){ // Player has met the losing condition
             currentGameState = GAME_STATE_OVER;
             this.displayGameOver();
