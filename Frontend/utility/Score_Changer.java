@@ -61,4 +61,8 @@ public class Score_Changer {
     public static void set_guess(String g) {
         guess_text = g;
     }
+
+    public String score_toString() {
+        return score_text;
+    }
 }
