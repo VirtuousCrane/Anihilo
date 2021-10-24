@@ -22,6 +22,13 @@ public class Score_Part {
          */
         public Score_Part(JPanel main_game_page, JPanel main_page, CardLayout page) {
                 // * Create Border
+                // * Panel for streak
+                JPanel streak_border = new JPanel();
+                streak_border.setBounds(330, 235, 100, 60);
+                JLabel streak = new JLabel(
+                                Utils.toHTML("<p style='font-size:10px; text-align:center;'>Streak <br />0</p>"));
+                streak_border.add(streak);
+                main_game_page.add(streak_border);
                 // * Panel for life
                 JPanel life_border = new JPanel();
                 life_border.setBounds(0, 421, 80, 30);
@@ -64,7 +71,7 @@ public class Score_Part {
                 accuracy_border.add(accuracy);
                 main_game_page.add(accuracy_border);
 
-                scoreChanger = new Score_Changer(score, guess, accuracy);
+                scoreChanger = new Score_Changer(score, guess, accuracy, streak);
                 lifeChanger = new Life_Changer(life);
         }
 

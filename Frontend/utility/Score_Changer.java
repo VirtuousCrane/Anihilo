@@ -6,9 +6,11 @@ public class Score_Changer {
     static String score_text = "0";
     static String accuracy_text = "0";
     static String guess_text = "0";
+    static String streak_text = "0";
     static JLabel score;
     static JLabel accuracy;
     static JLabel guess;
+    static JLabel streak;
 
     /**
      * The class constructor
@@ -17,11 +19,13 @@ public class Score_Changer {
      * @param guess_label    The label which displays the number of guesses of the
      *                       player
      * @param accuracy_label The label which displays the accuracy of the player
+     * @param streak_label   The label which displays the streak of the player
      */
-    public Score_Changer(JLabel score_label, JLabel guess_label, JLabel accuracy_label) {
+    public Score_Changer(JLabel score_label, JLabel guess_label, JLabel accuracy_label, JLabel streak_label) {
         score = score_label;
         accuracy = accuracy_label;
         guess = guess_label;
+        streak = streak_label;
     }
 
     /**
@@ -32,6 +36,8 @@ public class Score_Changer {
         accuracy.setText(
                 Utils.toHTML("<p style='font-size:20px; text-align:center;'>Accuracy<br />" + accuracy_text + "</p>"));
         guess.setText(Utils.toHTML("<p style='font-size:20px; text-align:center;'>Guess<br />" + guess_text + "</p>"));
+        streak.setText(
+                Utils.toHTML("<p style='font-size:10px; text-align:center;'>Streak <br />" + streak_text + "</p>"));
 
     }
 
@@ -62,7 +68,12 @@ public class Score_Changer {
         guess_text = g;
     }
 
-    public String score_toString() {
-        return score_text;
+    /**
+     * Sets the streak String
+     *
+     * @param s The streak String
+     */
+    public static void set_streak(String s) {
+        streak_text = s;
     }
 }
