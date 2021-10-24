@@ -19,7 +19,6 @@ public class Game {
     LifeControl lifeControl;
     ScoreControl scoreControl;
 
-    public static final String[] possibleGameState = {"waitingForAlgorithmUpdate", "answeringQuestion", "lookingAtAnswer"};
     public static final Integer GAME_STATE_WAITING = 0; // User waiting for algorithm to update
     public static final Integer GAME_STATE_ANSWERING = 1; // User is trying to answer the question
     public static final Integer GAME_STATE_LOOK_AT_RESULT = 2; // User is looking at the result of the answer
@@ -60,6 +59,7 @@ public class Game {
     /**
     * Updates the status of the player
     */
+    @Deprecated
     public void update(){
         this.questionControl.update(this.gameStats);
         this.lifeControl.update(this.gameStats);
@@ -71,6 +71,7 @@ public class Game {
     *
     * @return String An information String
     */
+    @Deprecated
     @Override
     public String toString() {
         return "Game\n" +
@@ -162,6 +163,7 @@ public class Game {
         frame.dispose();
     }
 
+    // Generate question inside the game stats
     private void generateQuestion(){
         Scanner input = new Scanner(System.in);
         String questionDifficulty = questionControl.getQuestionDifficulty();
@@ -179,6 +181,7 @@ public class Game {
         System.out.println("generateQuestion() generated a question");
     }
 
+    // Update the control object based on the game stats
     private void updateControlObject(){
         this.questionControl.update(this.gameStats);
         this.lifeControl.update(this.gameStats);
@@ -249,7 +252,10 @@ public class Game {
 
     private void displayGameOver(){
         System.out.println("GUI updates the prompt to: GAME OVER!");
-        System.out.println("GUI updates the leftAnimeImg");
+        System.out.println("GUI updates the leftAnimeImgButton to: imgLeftGameOver.png");
+        System.out.println("GUI updates the rightAnimeImgButton to: imgRightGameOver.png");
+        System.out.println("GUI updates the leftAnimeTitle to: To play again press the reset button");
+        System.out.println("GUI updates the rightAnimeTitle to: To play again press the reset button");
     }
 
     // Interact-able methods or buttons
@@ -277,7 +283,8 @@ public class Game {
             System.out.println("User clicked buttonNextQuestion at wrong game state(intCode); GameState(IntCode): " + currentGameState);
             return;
         } else if (! lifeControl.isAlive()){ // Player has met the losing condition
-
+            currentGameState = GAME_STATE_OVER;
+            this.displayGameOver();
         }else { // Player keep playing
             currentGameState = GAME_STATE_WAITING;
 
