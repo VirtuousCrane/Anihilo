@@ -19,6 +19,13 @@ public class Game {
     LifeControl lifeControl;
     ScoreControl scoreControl;
 
+    public static final String[] possibleGameState = {"waitingForAlgorithmUpdate", "answeringQuestion", "lookingAtAnswer"};
+    public static final Integer GAME_STATE_WAITING = 0; // User waiting for algorithm to update
+    public static final Integer GAME_STATE_ANSWERING = 1; // User is trying to answer the question
+    public static final Integer GAME_STATE_LOOK_AT_RESULT = 2; // User is looking at the result of the answer
+    public static final Integer GAME_STATE_OVER = 3; // User has lose the game
+    Integer currentGameState = GAME_STATE_WAITING;
+
     /**
     * The class constructor which receives all options
     *
@@ -166,21 +173,37 @@ public class Game {
                 gameStats.setQuestion(this.questionMaker.makeQuestion(questionDifficulty, questionType));
                 questionIsGenerated = true;
             } catch (ConnectionError e){
-                System.out.println("Error: Connection problem at game.run()");
-                System.out.println("Please reconnect your internet and press 1 to cotinue: ");
-                String stopper = input.nextLine();
+                displayConnectionErrorPopUp();
             }
         }
+        System.out.println("generateQuestion() generated a question");
     }
 
+    private void updateControlObject(){
+        this.questionControl.update(this.gameStats);
+        this.lifeControl.update(this.gameStats);
+        this.scoreControl.update(this.gameStats);
+    }
+
+    // Answer the question,update control object, tell user the answer, update current game state
     private void answerQuestion(Integer userAnswer){
+        if(! currentGameState.equals(GAME_STATE_ANSWERING)){
+            System.out.println("User press buttonAnimeImg at wrong game state; currentGameState(IntCode): " + currentGameState + " answer(IntCode): " + userAnswer);
+            return;
+        }
+
+        currentGameState = GAME_STATE_WAITING;
+
         if(gameStats.getQuestion().checkAnswer(userAnswer)){
-            System.out.println("Correct!");
             this.gameStats.answeredCorrect();
         } else {
-            System.out.println("Wrong");
             this.gameStats.answeredWrong();
         }
+
+        this.updateControlObject();
+        this.displayUserAnswerCorrectOrWrong();
+
+        currentGameState = GAME_STATE_LOOK_AT_RESULT;
     }
 
     // This function would have its print statement replaced the by GUI function like GUI.setLeftAnimeImage()
@@ -200,10 +223,69 @@ public class Game {
         System.out.println("Update score to: " + scoreControl.calculateScore());
     }
 
-    private void initializeGame(){
+    // This function would have its print statement replaced by the GUI function like GUI.setGameBackGround(Color.RED)
+    private void displayUserAnswerCorrectOrWrong(){
+        if(gameStats.isLatestQuestionAnsweredCorrect()){
+            System.out.println("Update gameBackground color: Green");
+        } else {
+            System.out.println("Update gameBackground color: Red");
+        }
+    }
+
+    private void displayConnectionErrorPopUp(){
+        System.out.println("Update GUI to show a message box telling user there is internet problem");
+        System.out.println("Pop waiting for user to click OK after to fix internet problem (Press 1 and enter to continue): ");
+        Scanner clickToProceed = new Scanner(System.in);
+        clickToProceed.nextLine();
+    }
+
+    // Interact-able methods or buttons
+
+    public void initializeGame(){
         System.out.println("About to initialize the game");
         this.generateQuestion();
+        this.displayQuestion();
+        this.displayStats();
 
+    }
+
+    public void clickButtonLeftAnimeImg(){
+        this.answerQuestion(Question.ANSWER_LEFT);
+    }
+
+    public void clickButtonRightAnimeImg(){
+        this.answerQuestion(Question.ANSWER_RIGHT);
+    }
+
+    // This is the pause in between question
+    // To allow user to see whether they answer correctly
+    public void clickButtonNextQuestion(){
+        if(! currentGameState.equals(GAME_STATE_LOOK_AT_RESULT)){
+            System.out.println("User clicked buttonNextQuestion at wrong game state(intCode); GameState(IntCode): " + currentGameState);
+            return;
+        }
+
+        currentGameState = GAME_STATE_WAITING;
+
+        System.out.println("GUI set background color: White/Grey");
+        this.generateQuestion();
+        this.displayQuestion();
+        this.displayStats();
+
+        currentGameState = GAME_STATE_ANSWERING;
+    }
+
+    // Clicked the button
+    public void clickButtonBackToPreviousPage(){
+
+    }
+
+    // Button which
+    public void clickButtonGameOver(){
+
+    }
+
+    public void clickButtonResetGame(){
 
     }
 }

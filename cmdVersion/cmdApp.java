@@ -4,26 +4,21 @@ import cmdVersion.game.Game;
 import cmdVersion.game.GameFactory;
 import connection.ConnectionError;
 
+import javax.swing.*;
 import java.util.Scanner;
 
 public class cmdApp {
     public static void main(String[] args){
-        Game game = null;
-        Scanner stopBreak = new Scanner(System.in);
+        JFrame frame = new JFrame();
+        frame.setSize(500,500);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
 
-        boolean isGameGenerated = false;
-        while(! isGameGenerated){
-            try {
-                game = GameFactory.createGame(GameFactory.gameModes[0]);
-                isGameGenerated = true;
-            } catch (ConnectionError e) {
-                System.out.println("Connection error at cmdApp");
-                System.out.println("Please reconnect then press 1 and enter to continue: ");
-                stopBreak.nextLine();
-            }
-        }
+        JButton button = new JButton();
+        button.setText("Mr Button here");
 
-        game.run();
+        frame.add(button);
+        JOptionPane.showMessageDialog(frame, "Pop up to interrupt you from pressing button");
 
 
 
