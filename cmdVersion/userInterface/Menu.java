@@ -19,11 +19,11 @@ public class Menu {
 
 
         while(userInput != EXIT) {
-            System.out.println("Main menu page (Show the main menu page)");
+            System.out.println("Main menu page (Show the main menu page)"); // Here like GUI.showMainMenuPage()
             System.out.println("0. Exit");
             System.out.println("1. Play");
             System.out.println("Select your option: (At this point the algorithm is waiting for a user to press button)");
-            userInput = Integer.parseInt(input.nextLine());
+            userInput = Integer.parseInt(input.nextLine()); // Here like GUI.getUserInputMainMenuPage()
 
 
             switch (userInput) {
@@ -34,7 +34,7 @@ public class Menu {
                 case 1 -> {
                     System.out.println("User have selected option 1: Play");
                     System.out.println("Prepare to move to play page");
-                    showSelectGameMode();
+                    showSelectGameMode(); // GUI.showSelectGameModePage()
                 }
             }
         }
@@ -60,7 +60,7 @@ public class Menu {
 //            System.out.println("3. RNG");
 //            System.out.println("4. Practice");
             System.out.println("Select your option: ");
-            userInput = Integer.parseInt(input.nextLine());
+            userInput = Integer.parseInt(input.nextLine()); // GUI.getUserInputSelectGameMode()
 
 
             switch (userInput) {
@@ -97,7 +97,8 @@ public class Menu {
                     game = GameFactory.createGame(gameModeChoice);
                     isGameGenerated = true;
                 } catch (ConnectionError e){
-                    System.out.println("Error: Connection error at showSelectGameMode() in Menu()");
+                    // GUI.showConnectionErrorPopUpBox()
+                    System.out.println("Error: Connection error at showSelectGameMode() in Menu()"); // GUI.showDisconnectionPopUp
                     System.out.println("Reconnect and press 1 and enter to continue");
                     input.nextLine();
                 }
@@ -107,6 +108,7 @@ public class Menu {
             isGameGenerated = false; // Making sure to create a new game again
         }
         System.out.println("End of showSelectGameMode() in menu()");
+        // Go back to the selection game mode page
     } // END OF selectionGameMode()
 
     /**
