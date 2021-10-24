@@ -37,7 +37,13 @@ public class cmdApp {
             System.out.println("0. Exit");
             System.out.print("Select your option: ");
 
-            userInput = Integer.parseInt(input.nextLine());
+            try{
+                userInput = Integer.parseInt(input.nextLine());
+            } catch (Exception e){
+                System.out.println("Error input please try again");
+            }
+
+
 
             switch(userInput){
                 case 1 -> game.clickButtonLeftAnimeImg();
