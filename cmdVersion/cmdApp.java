@@ -1,24 +1,34 @@
 package cmdVersion;
 
+import Frontend.GUI;
 import cmdVersion.game.Game;
 import cmdVersion.game.GameFactory;
 import connection.ConnectionError;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Scanner;
 
 public class cmdApp {
     public static void main(String[] args){
-        JFrame frame = new JFrame();
-        frame.setSize(500,500);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+        GUI gui = null;
+        Game game = null;
+        try {
+            gui = new GUI();
+            game = GameFactory.createGame(GameFactory.gameModes[0]);
+        }
+        catch (ConnectionError e){
+            System.out.println(e);
+        } catch (Exception e){
+            System.out.println(e);
+        }
 
-        JButton button = new JButton();
-        button.setText("Mr Button here");
 
-        frame.add(button);
-        JOptionPane.showMessageDialog(frame, "Pop up to interrupt you from pressing button");
+
+
+
+
 
 
 

@@ -71,7 +71,6 @@ public class Game {
     *
     * @return String An information String
     */
-    @Deprecated
     @Override
     public String toString() {
         return "Game\n" +
@@ -86,6 +85,7 @@ public class Game {
     /**
     * Runs the game
     */
+    @Deprecated
     public void run(){
         Scanner input = new Scanner(System.in);
         Integer userAnswer = -5;
