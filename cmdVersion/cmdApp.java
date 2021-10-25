@@ -13,18 +13,8 @@ import java.util.Scanner;
 
 public class cmdApp {
     public static void main(String[] args){
-        Main_GUI gui = null;
-        try{
-            gui = new Main_GUI();
-        } catch (Exception e){
-            System.out.println(e);
-        }
 
-
-
-
-
-
+        cmdApp.cmdAttempt();
 
 //
 //        // Simple demo

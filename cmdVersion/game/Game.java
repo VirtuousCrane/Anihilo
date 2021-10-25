@@ -283,8 +283,11 @@ public class Game {
     public void initializeGame(){
         System.out.println("About to initialize the game");
         this.generateQuestion();
+
         this.displayQuestion();
         this.displayStats();
+        this.displayLifeControl();
+        this.displayQuestionControl();
         currentGameState = GAME_STATE_ANSWERING;
     }
 
