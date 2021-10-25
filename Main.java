@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 public class Main {
     public static void main(String[] args) {
         try {
-            GUI gui = new GUI();
+            GUI gui = GUI.getInstance();
             gui.useDefaultStartButton();
 
             Game game = null;
