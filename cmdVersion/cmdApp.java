@@ -93,7 +93,7 @@ public class cmdApp {
         GUI gui = null;
         Game game = null;
         try {
-            gui = new GUI();
+            gui = GUI.getInstance();
             game = GameFactory.createGame(GameFactory.gameModes[0]);
             game.initializeGame();
         }
