@@ -17,11 +17,12 @@ public class Main_GUI {
     Main_Game_Page main_game;
 
     Main_GUI() throws Exception {
-//        JFrame main_page = new JFrame();
+        // JFrame main_page = new JFrame();
         main_page = new JFrame();
 
         // * Setting Frame Size and etc
         main_page.setSize(750, 600);
+        main_page.setResizable(false);
         main_page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         main_page.setLayout(null);
 
@@ -45,11 +46,10 @@ public class Main_GUI {
 
         main_page.add(deck);
 
-
     }
-//    public static void main(String[] args) throws Exception {
-    public void start()
-        throws Exception {
+
+    // public static void main(String[] args) throws Exception {
+    public void start() throws Exception {
         // * make JFrame visible (need to be put last)
         main_page.setVisible(true);
     }
