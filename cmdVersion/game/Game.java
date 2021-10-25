@@ -226,6 +226,8 @@ public class Game {
         System.out.println("Update the rightAnimeImgButton to: " + currentQuestion.getRightAnimeImgPath());
         System.out.println("Update the leftAnimeTitle to: " + currentQuestion.getLeftAnime().get_name());
         System.out.println("Update the rightAnimeTitle to: " + currentQuestion.getRightAnime().get_name());
+        System.out.println("Update GUI questionDifficultyTextBox to: " + currentQuestion.getDifficulty());
+        System.out.println("Update GUI questionControlTypeTextBox to: " + currentQuestion.getType());
     }
 
     // This function would have its print statement replaced by the GUI function like GUI.setAccuracy()
@@ -266,13 +268,21 @@ public class Game {
         System.out.println("GUI update the rightAnimeQuestionRelevantInfo: " + gameStats.getQuestion().getRightAnimeQuestionRelevantData());
     }
 
+    // Display the lifeControl system which show the user how far they are from reaching game over
+    // Basically it show the stats relating when will the user lose, but we have many different implementation
+    private void displayLifeControl(){
+        System.out.println("Update GUI lifeControlTextBox to: " + lifeControl.toString());
+    }
+
     // Interact-able methods or buttons
 
     public void initializeGame(){
         System.out.println("About to initialize the game");
         this.generateQuestion();
+
         this.displayQuestion();
         this.displayStats();
+        this.displayLifeControl();
         currentGameState = GAME_STATE_ANSWERING;
     }
 
@@ -289,18 +299,17 @@ public class Game {
     public void clickButtonNextQuestion(){
         if(! currentGameState.equals(GAME_STATE_LOOK_AT_RESULT)){
             System.out.println("User clicked buttonNextQuestion at wrong game state GameState(IntCode): " + currentGameState);
-
         } else if (! lifeControl.isAlive()){ // Player has met the losing condition
             currentGameState = GAME_STATE_OVER;
             this.displayGameOver();
         }else { // Player keep playing
             currentGameState = GAME_STATE_WAITING;
-
             System.out.println("GUI set background color: White/Grey");
             this.generateQuestion();
+
             this.displayQuestion();
             this.displayStats();
-
+            this.displayLifeControl();
             currentGameState = GAME_STATE_ANSWERING;
         }
     }

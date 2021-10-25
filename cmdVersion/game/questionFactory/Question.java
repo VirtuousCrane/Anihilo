@@ -104,6 +104,10 @@ public class Question {
         return getAnimeQuestionRelevantData(rightAnime);
     }
 
+    public String getType() {
+        return type;
+    }
+
     /**
     * Gets the relevant data of the Anime
     *
