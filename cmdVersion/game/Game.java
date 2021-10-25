@@ -269,7 +269,13 @@ public class Game {
     // Display the lifeControl system which show the user how far they are from reaching game over
     // Basically it show the stats relating when will the user lose, but we have many different implementation
     private void displayLifeControl(){
-        System.out.println("Update lifeControlTextBox to: " + lifeControl.toString());
+        System.out.println("Update GUI lifeControlTextBox to: " + lifeControl.toString());
+    }
+
+    // Display the type and difficulty of the question
+    private void displayQuestionControl(){
+        System.out.println("Update GUI questionControlDifficultyTextBox to: " + questionControl.getQuestionDifficulty());
+        System.out.println("Update GUI questionControlTypeTextBox to: " + questionControl.getQuestionType());
     }
 
     // Interact-able methods or buttons
@@ -300,12 +306,12 @@ public class Game {
             this.displayGameOver();
         }else { // Player keep playing
             currentGameState = GAME_STATE_WAITING;
-
             System.out.println("GUI set background color: White/Grey");
             this.generateQuestion();
             this.displayQuestion();
             this.displayStats();
             this.displayLifeControl();
+            this.displayQuestionControl();
 
             currentGameState = GAME_STATE_ANSWERING;
         }
