@@ -226,6 +226,8 @@ public class Game {
         System.out.println("Update the rightAnimeImgButton to: " + currentQuestion.getRightAnimeImgPath());
         System.out.println("Update the leftAnimeTitle to: " + currentQuestion.getLeftAnime().get_name());
         System.out.println("Update the rightAnimeTitle to: " + currentQuestion.getRightAnime().get_name());
+        System.out.println("Update GUI questionDifficultyTextBox to: " + currentQuestion.getDifficulty());
+        System.out.println("Update GUI questionControlTypeTextBox to: " + currentQuestion.getType());
     }
 
     // This function would have its print statement replaced by the GUI function like GUI.setAccuracy()
@@ -272,12 +274,6 @@ public class Game {
         System.out.println("Update GUI lifeControlTextBox to: " + lifeControl.toString());
     }
 
-    // Display the type and difficulty of the question
-    private void displayQuestionControl(){
-        System.out.println("Update GUI questionControlDifficultyTextBox to: " + questionControl.getQuestionDifficulty());
-        System.out.println("Update GUI questionControlTypeTextBox to: " + questionControl.getQuestionType());
-    }
-
     // Interact-able methods or buttons
 
     public void initializeGame(){
@@ -287,7 +283,6 @@ public class Game {
         this.displayQuestion();
         this.displayStats();
         this.displayLifeControl();
-        this.displayQuestionControl();
         currentGameState = GAME_STATE_ANSWERING;
     }
 
@@ -311,11 +306,10 @@ public class Game {
             currentGameState = GAME_STATE_WAITING;
             System.out.println("GUI set background color: White/Grey");
             this.generateQuestion();
+
             this.displayQuestion();
             this.displayStats();
             this.displayLifeControl();
-            this.displayQuestionControl();
-
             currentGameState = GAME_STATE_ANSWERING;
         }
     }
