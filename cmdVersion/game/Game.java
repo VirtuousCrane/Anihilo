@@ -278,6 +278,7 @@ public class Game {
             gui.setGuess(String.valueOf(gameStats.getGuessAmount()));
             gui.setAccuracy(String.valueOf(gameStats.getGuessAccuracy()));
             gui.setScore(String.valueOf(scoreControl.calculateScore()));
+            gui.updateScoreboard();
         } else {
             System.out.println("Update guess to: " + gameStats.getGuessAmount());
             System.out.println("Update accuracy to: " + gameStats.getGuessAccuracy());
