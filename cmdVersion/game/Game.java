@@ -366,7 +366,13 @@ public class Game {
     // Display the lifeControl system which show the user how far they are from reaching game over
     // Basically it show the stats relating when will the user lose, but we have many different implementation
     private void displayLifeControl(){
-        System.out.println("Update GUI lifeControlTextBox to: " + lifeControl.toString());
+        GUI gui = getGUIAccess();
+        if (gui != null) {
+            System.out.println("GUI missing function to display the life control in game.displayLifeControl()");
+        } else {
+            System.out.println("Update GUI lifeControlTextBox to: " + lifeControl.toString());
+        }
+
     }
 
     // Interact-able methods or buttons
