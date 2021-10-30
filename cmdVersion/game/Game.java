@@ -287,10 +287,23 @@ public class Game {
 
     // This function would have its print statement replaced by the GUI function like GUI.setGameBackGround(Color.RED)
     private void displayUserAnswerCorrectOrWrong(){
-        if(gameStats.isLatestQuestionAnsweredCorrect()){
-            System.out.println("Update gameBackground color: Green");
-        } else {
-            System.out.println("Update gameBackground color: Red");
+        GUI gui = getGUIAccess();
+
+        if(gui != null){
+            if(gameStats.isLatestQuestionAnsweredCorrect()){
+                gui.setResultText("CORRECT");
+            } else {
+                gui.setResultText("WRONG");
+            }
+            gui.updateResultText();
+
+        } else { // Cannot "access" GUI
+            if(gameStats.isLatestQuestionAnsweredCorrect()){
+                System.out.println("Update gameBackground color: Green");
+            } else {
+                System.out.println("Update gameBackground color: Red");
+            }
+
         }
     }
 
