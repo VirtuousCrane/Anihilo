@@ -272,9 +272,17 @@ public class Game {
 
     // This function would have its print statement replaced by the GUI function like GUI.setAccuracy()
     private void displayStats(){
-        System.out.println("Update guess to: " + gameStats.getGuessAmount());
-        System.out.println("Update accuracy to: " + gameStats.getGuessAccuracy());
-        System.out.println("Update score to: " + scoreControl.calculateScore());
+        GUI gui = getGUIAccess();
+
+        if(gui != null){
+            gui.setGuess(String.valueOf(gameStats.getGuessAmount()));
+            gui.setAccuracy(String.valueOf(gameStats.getGuessAccuracy()));
+            gui.setScore(String.valueOf(scoreControl.calculateScore()));
+        } else {
+            System.out.println("Update guess to: " + gameStats.getGuessAmount());
+            System.out.println("Update accuracy to: " + gameStats.getGuessAccuracy());
+            System.out.println("Update score to: " + scoreControl.calculateScore());
+        }
     }
 
     // This function would have its print statement replaced by the GUI function like GUI.setGameBackGround(Color.RED)
