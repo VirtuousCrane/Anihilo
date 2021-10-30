@@ -309,10 +309,16 @@ public class Game {
     }
 
     private void displayConnectionErrorPopUp(){
-        System.out.println("Update GUI to show a message box telling user there is internet problem");
-        System.out.println("Pop waiting for user to click OK after to fix internet problem (Press 1 and enter to continue): ");
-        Scanner clickToProceed = new Scanner(System.in);
-        clickToProceed.nextLine();
+        GUI gui = getGUIAccess();
+
+        if(gui != null){
+            System.out.println("displayConnectionErrorPopUp is missing the GUI needed as of 2021 Oct 30");
+        } else {
+            System.out.println("Update GUI to show a message box telling user there is internet problem");
+            System.out.println("Pop waiting for user to click OK after to fix internet problem (Press 1 and enter to continue): ");
+            Scanner clickToProceed = new Scanner(System.in);
+            clickToProceed.nextLine();
+        }
     }
 
     private void displayGameOver(){
