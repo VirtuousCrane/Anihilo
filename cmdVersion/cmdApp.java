@@ -96,9 +96,6 @@ public class cmdApp {
             gui = GUI.getInstance();
             game = GameFactory.createGame(GameFactory.gameModes[0]);
             game.initializeGame();
-        }
-        catch (ConnectionError e){
-            System.out.println(e);
         } catch (Exception e){
             System.out.println(e);
         }

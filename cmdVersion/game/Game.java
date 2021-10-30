@@ -34,7 +34,7 @@ public class Game {
     *
     * @throws ConnectionError
     */
-    public Game(QuestionControl questionControl, LifeControl lifeControl, ScoreControl scoreControl) throws ConnectionError {
+    public Game(QuestionControl questionControl, LifeControl lifeControl, ScoreControl scoreControl){
         this.questionControl = questionControl;
         this.lifeControl = lifeControl;
         this.scoreControl = scoreControl;

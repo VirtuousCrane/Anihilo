@@ -13,6 +13,7 @@ public class Menu {
     /**
     * Displays the main menu
     */
+    @Deprecated
     public void showMainMenu() {
         Scanner input = new Scanner(System.in);
         Integer userInput = -1;
@@ -45,6 +46,7 @@ public class Menu {
     /**
     * Lets the user select the game mode
     */
+    @Deprecated
     public void showSelectGameMode(){
         Scanner input = new Scanner(System.in);
         boolean isGameGenerated = false;
@@ -91,21 +93,9 @@ public class Menu {
                 break;
             }
 
-            // Generate the game from factory while making sure to ask user to reconnect in case disconnection
-            while(! isGameGenerated){
-                try{
-                    game = GameFactory.createGame(gameModeChoice);
-                    isGameGenerated = true;
-                } catch (ConnectionError e){
-                    // GUI.showConnectionErrorPopUpBox()
-                    System.out.println("Error: Connection error at showSelectGameMode() in Menu()"); // GUI.showDisconnectionPopUp
-                    System.out.println("Reconnect and press 1 and enter to continue");
-                    input.nextLine();
-                }
-            }
 
+            game = GameFactory.createGame(gameModeChoice);
             showGamePage(game);
-            isGameGenerated = false; // Making sure to create a new game again
         }
         System.out.println("End of showSelectGameMode() in menu()");
         // Go back to the selection game mode page
@@ -114,6 +104,7 @@ public class Menu {
     /**
     * Handles the launching and ending of the game
     */
+    @Deprecated
     public void showGamePage(Game inGame) {
         Scanner input = new Scanner(System.in);
 

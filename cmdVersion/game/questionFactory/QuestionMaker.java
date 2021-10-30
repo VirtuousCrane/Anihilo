@@ -36,9 +36,8 @@ public class QuestionMaker {
     *
     * @throws ConnectionError
     */
-    public QuestionMaker() throws ConnectionError {
+    public QuestionMaker() {
         this.generateRandomNumberList();
-        this.fillAnimeList();
     }
 
     /**
