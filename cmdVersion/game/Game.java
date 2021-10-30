@@ -1,5 +1,6 @@
 package cmdVersion.game;
 
+import Frontend.GUI;
 import cmdVersion.game.lifeControl.LifeControl;
 import cmdVersion.game.questionControl.QuestionControl;
 import cmdVersion.game.questionFactory.Question;
@@ -24,6 +25,8 @@ public class Game {
     public static final Integer GAME_STATE_LOOK_AT_RESULT = 2; // User is looking at the result of the answer
     public static final Integer GAME_STATE_OVER = 3; // User has lose the game
     Integer currentGameState = GAME_STATE_WAITING;
+
+    public static final Integer MAX_GUI_ACCESS_ERROR = 10;
 
     /**
     * The class constructor which receives all options
@@ -216,6 +219,21 @@ public class Game {
         this.displayAnswer();
 
         currentGameState = GAME_STATE_LOOK_AT_RESULT;
+    }
+
+    // Allow the access to the GUI dealing with the GUI exception, return null if there is continuous problem
+    private GUI getGUIAccess(){
+        boolean receivedGUIAccess = false;
+        GUI output = null;
+        for(int i = 0; i < MAX_GUI_ACCESS_ERROR; i++){
+            try{
+                output = GUI.getInstance();
+            }catch (Exception e){
+                System.out.println("Error in getting gui access in getGUIAccess()");
+            }
+        }
+
+        return output;
     }
 
     // This function would have its print statement replaced the by GUI function like GUI.setLeftAnimeImage()
