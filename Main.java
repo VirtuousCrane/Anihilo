@@ -23,12 +23,14 @@ public class Main {
             gui.setLeftAnimeButtonCallback(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     game.clickButtonLeftAnimeImg();
+                    game.clickButtonNextQuestion(); // Putting it here temp since 2021 Oct 30 since no next question button
                 }
             });
 
             gui.setRightAnimeButtonCallback(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     game.clickButtonLeftAnimeImg();
+                    game.clickButtonNextQuestion(); // Putting it here temp since 2021 Oct 30 since no next question button
                 }
             });
 
