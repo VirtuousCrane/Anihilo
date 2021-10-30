@@ -10,7 +10,7 @@ public class MyGUITest {
     public static void main(String[] args){
         GUI gui = null;
         try{
-            gui = new GUI();
+            gui = GUI.getInstance();
         } catch (Exception e){
             System.out.println(e);
         }
