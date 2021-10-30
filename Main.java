@@ -13,24 +13,22 @@ public class Main {
             GUI gui = GUI.getInstance();
             gui.useDefaultStartButton();
 
-            Game game = null;
-            game = GameFactory.createGame(GameFactory.gameModes[0]);
-            game.initializeGame();
 
             // ONLY USE useDefaultButtonBehavior IN TEST
             // ENVIRONMENT
             // gui.useDefaultButtonBehavior();
 
-            Game finalGame = game;
+            Game game = GameFactory.createGame(GameFactory.gameModes[0]);
+            game.initializeGame();
             gui.setLeftAnimeButtonCallback(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-
+                    game.clickButtonLeftAnimeImg();
                 }
             });
 
             gui.setRightAnimeButtonCallback(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-
+                    game.clickButtonLeftAnimeImg();
                 }
             });
 

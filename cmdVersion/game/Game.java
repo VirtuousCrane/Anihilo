@@ -239,13 +239,35 @@ public class Game {
     // This function would have its print statement replaced the by GUI function like GUI.setLeftAnimeImage()
     private void displayQuestion(){
         Question currentQuestion = gameStats.getQuestion();
-        System.out.println("Update prompt to: " + currentQuestion.getPrompt());
-        System.out.println("Update the leftAnimeImgButton to: " + currentQuestion.getLeftAnimeImgPath());
-        System.out.println("Update the rightAnimeImgButton to: " + currentQuestion.getRightAnimeImgPath());
-        System.out.println("Update the leftAnimeTitle to: " + currentQuestion.getLeftAnime().get_name());
-        System.out.println("Update the rightAnimeTitle to: " + currentQuestion.getRightAnime().get_name());
-        System.out.println("Update GUI questionDifficultyTextBox to: " + currentQuestion.getDifficulty());
-        System.out.println("Update GUI questionControlTypeTextBox to: " + currentQuestion.getType());
+        GUI gui = getGUIAccess();
+
+        if (gui != null) {
+            gui.setInstructionText(currentQuestion.getPrompt());
+            gui.updateInstructionText();
+
+            gui.setLeftButtonImagePath(currentQuestion.getLeftAnimeImgPath());
+            gui.setRightButtonImagePath(currentQuestion.getRightAnimeImgPath());
+            gui.updateButtonImages();
+
+            gui.setLeftAnimeTitle(currentQuestion.getLeftAnime().get_name());
+            gui.setRightAnimeTitle(currentQuestion.getRightAnime().get_name());
+            gui.updateAnimeTitle();
+
+            gui.setDifficultyText(currentQuestion.getDifficulty()); // This doesn't need update apparently
+
+
+        } else { // Access to GUI has failed
+
+            System.out.println("displayQuestion() gui failed displaying as terminal version");
+            System.out.println("Update prompt to: " + currentQuestion.getPrompt());
+            System.out.println("Update the leftAnimeImgButton to: " + currentQuestion.getLeftAnimeImgPath());
+            System.out.println("Update the rightAnimeImgButton to: " + currentQuestion.getRightAnimeImgPath());
+            System.out.println("Update the leftAnimeTitle to: " + currentQuestion.getLeftAnime().get_name());
+            System.out.println("Update the rightAnimeTitle to: " + currentQuestion.getRightAnime().get_name());
+            System.out.println("Update GUI questionDifficultyTextBox to: " + currentQuestion.getDifficulty());
+            System.out.println("Update GUI questionControlTypeTextBox to: " + currentQuestion.getType());
+        }
+
     }
 
     // This function would have its print statement replaced by the GUI function like GUI.setAccuracy()
