@@ -22,55 +22,15 @@ public class Main {
             // gui.useDefaultButtonBehavior();
 
             Game finalGame = game;
-
             gui.setLeftAnimeButtonCallback(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    gui.setButtonImages("./animeImage/rick.png", "./animeImage/rick.png");
-                    gui.updateButtonImages();
-
-                    gui.setInstructionText("Never gonna give you up");
-                    gui.updateInstructionText();
-
-                    gui.setResultText("Rick!");
-                    gui.updateResultText();
-
-                    gui.setScore("420");
-                    gui.setAccuracy("69");
-                    gui.setGuess("69");
-                    gui.updateScoreboard();
-
-                    gui.setAnimeTitle("Never gonna run around", "and desert you");
-                    gui.updateAnimeTitle();
-                    gui.setDifficultyText("VERY EASY");
-                    System.out.println("Clicked left anime button");
-                    finalGame.clickButtonLeftAnimeImg();
-                    finalGame.clickButtonNextQuestion();
 
                 }
             });
 
             gui.setRightAnimeButtonCallback(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    gui.setButtonImages("./animeImage/rick.png", "./animeImage/rick.png");
-                    gui.updateButtonImages();
 
-                    gui.setInstructionText("Never gonna give you up");
-                    gui.updateInstructionText();
-
-                    gui.setResultText("Rick!");
-                    gui.updateResultText();
-
-                    gui.setScore("420");
-                    gui.setAccuracy("69");
-                    gui.setGuess("69");
-                    gui.updateScoreboard();
-
-                    gui.setAnimeTitle("Never gonna run around", "and desert you");
-                    gui.updateAnimeTitle();
-                    System.out.println("Clicked right anime button");
-
-                    finalGame.clickButtonRightAnimeImg();
-                    finalGame.clickButtonNextQuestion();
                 }
             });
 
