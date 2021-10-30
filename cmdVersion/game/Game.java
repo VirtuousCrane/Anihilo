@@ -27,6 +27,8 @@ public class Game {
     Integer currentGameState = GAME_STATE_WAITING;
 
     public static final Integer MAX_GUI_ACCESS_ERROR = 10;
+    public static final String imgPathLeftGameOver = "animeImage\\imgLeftGameOver.png";
+    public static final String imgPathRightGameOver = "animeImage\\imgRightGameOver.png";
 
     /**
     * The class constructor which receives all options
@@ -322,11 +324,28 @@ public class Game {
     }
 
     private void displayGameOver(){
-        System.out.println("GUI updates the prompt to: GAME OVER!");
-        System.out.println("GUI updates the leftAnimeImgButton to: imgLeftGameOver.png");
-        System.out.println("GUI updates the rightAnimeImgButton to: imgRightGameOver.png");
-        System.out.println("GUI updates the leftAnimeTitle to: To play again press the reset button");
-        System.out.println("GUI updates the rightAnimeTitle to: To play again press the reset button");
+        GUI gui = getGUIAccess();
+
+        if(gui != null){
+            gui.setInstructionText("GAME OVER!");
+            gui.updateInstructionText();
+
+            gui.setLeftButtonImagePath(imgPathLeftGameOver);
+            gui.setRightButtonImagePath(imgPathRightGameOver);
+            gui.updateButtonImages();
+
+            gui.setLeftAnimeTitle("To play again press the reset button");
+            gui.setRightAnimeTitle("To play again press the reset button");
+            gui.updateAnimeTitle();
+
+        } else {
+            System.out.println("GUI updates the prompt to: GAME OVER!");
+            System.out.println("GUI updates the leftAnimeImgButton to: imgLeftGameOver.png");
+            System.out.println("GUI updates the rightAnimeImgButton to: imgRightGameOver.png");
+            System.out.println("GUI updates the leftAnimeTitle to: To play again press the reset button");
+            System.out.println("GUI updates the rightAnimeTitle to: To play again press the reset button");
+        }
+
     }
 
     // This will update the GUI with info relevant question for the anime
