@@ -351,8 +351,16 @@ public class Game {
     // This will update the GUI with info relevant question for the anime
     // Ex: If Qn ask about which anime came out first, this will update with leftAnime 2001-02-03 and rightAnime 2005-07-16
     private void displayAnswer(){
-        System.out.println("GUI update the leftAnimeQuestionRelevantInfo: " + gameStats.getQuestion().getLeftAnimeQuestionRelevantData());
-        System.out.println("GUI update the rightAnimeQuestionRelevantInfo: " + gameStats.getQuestion().getRightAnimeQuestionRelevantData());
+        GUI gui = getGUIAccess();
+        if(gui != null){
+            System.out.println("GUI missing function to display the \"answer\" ");
+            System.out.println("GUI missing function to display the relevant anime data as of 2021 Oct 30");
+
+        } else {
+            System.out.println("GUI update the leftAnimeQuestionRelevantInfo: " + gameStats.getQuestion().getLeftAnimeQuestionRelevantData());
+            System.out.println("GUI update the rightAnimeQuestionRelevantInfo: " + gameStats.getQuestion().getRightAnimeQuestionRelevantData());
+        }
+
     }
 
     // Display the lifeControl system which show the user how far they are from reaching game over
