@@ -14,12 +14,12 @@ public class Instruction {
     Instruction_Changer instructionChanger;
 
     /**
-    * Shows the instruction
-    *
-    * @param main_game_page The main game page
-    * @param main_page      The main page
-    * @param page           A page to be switched to
-    */
+     * Shows the instruction
+     *
+     * @param main_game_page The main game page
+     * @param main_page      The main page
+     * @param page           A page to be switched to
+     */
     public Instruction(JPanel main_game_page, JPanel main_page, CardLayout page) {
 
         //// * (button for back)
@@ -44,12 +44,14 @@ public class Instruction {
 
         // * Create Difficulty Text Area
         JPanel diff_panel = new JPanel();
-        diff_panel.setBounds(630, 10, 100, 30);
+        diff_panel.setBounds(630, 5, 100, 40);
 
         JLabel diff_text = new JLabel("");
         instruction_panel.add(instruction_text);
         diff_panel.add(diff_text);
         main_game_page.add(diff_panel);
+
+        // * Create Reset Button
 
         instructionChanger = new Instruction_Changer(instruction_text, diff_text);
     }

@@ -68,7 +68,7 @@ public class Game_Part {
         aniPanel_R.setBounds(415, 350, 235, 100);
         // add a text that show whether the answer is correct or wrong
         JPanel resultPanel = new JPanel();
-        resultPanel.setBounds(345, 205, 60, 30);
+        resultPanel.setBounds(330, 205, 90, 30);
 
         JLabel aniL_text = new JLabel();
         aniPanel_L.add(aniL_text);
