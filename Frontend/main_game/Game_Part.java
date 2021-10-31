@@ -70,6 +70,16 @@ public class Game_Part {
         JPanel resultPanel = new JPanel();
         resultPanel.setBounds(330, 205, 90, 30);
 
+        JPanel rightAnimePopularityPanel = new JPanel();
+        JPanel leftAnimePopularityPanel = new JPanel();
+        JLabel rightAnimePopularity = new JLabel();
+        JLabel leftAnimePopularity = new JLabel();
+        leftAnimePopularityPanel.setBounds(207, 125, 20, 100);
+        rightAnimePopularityPanel.setBounds(207, 525, 20, 100);
+
+        leftAnimePopularityPanel.add(leftAnimePopularity);
+        rightAnimePopularityPanel.add(rightAnimePopularity);
+
         JLabel aniL_text = new JLabel();
         aniPanel_L.add(aniL_text);
         JLabel aniR_text = new JLabel();
@@ -80,6 +90,8 @@ public class Game_Part {
         main_game_page.add(aniPanel_L);
         main_game_page.add(aniPanel_R);
         main_game_page.add(resultPanel);
+        main_game_page.add(leftAnimePopularityPanel);
+        main_game_page.add(rightAnimePopularityPanel);
         titleChanger = new AnimeTitle_Changer(aniL_text, aniR_text, result);
         Instruction_Changer.change_instruction();
         // AnimeTitle_Changer.changeAnimeTitle();
