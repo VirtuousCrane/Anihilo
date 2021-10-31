@@ -26,10 +26,10 @@ public class Popularity_Changer {
      * Changes the text of the both popularity
      */
     public static void change_scoreBoard() {
-        leftAnimePopularityLabel.setText(Utils.toHTML("<p style='font-size:20px; text-align:center;'>Popularity<br />"
+        leftAnimePopularityLabel.setText(Utils.toHTML("<p style='font-size:10px; text-align:center;'>Popularity<br />"
                 + leftAnimePopularity + "<br /> -></p>"));
-        rightAnimePopularityLabel.setText(Utils.toHTML("<p style='font-size:20px; text-align:center;'>Popularity<br />"
-                + rightAnimePopularity + "<br /> -></p>"));
+        rightAnimePopularityLabel.setText(Utils.toHTML("<p style='font-size:10px; text-align:center;'>Popularity<br />"
+                + rightAnimePopularity + "<br /> <-</p>"));
     }
 
     /**

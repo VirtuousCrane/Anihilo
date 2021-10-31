@@ -10,12 +10,16 @@ import Frontend.utility.Image_Changer;
 import Frontend.utility.Instruction_Changer;
 import Frontend.utility.AnimeTitle_Changer;
 import Frontend.utility.Score_Changer;
+import Frontend.utility.Popularity_Changer;
+
+import Frontend.utility.Utils;
 
 public class Game_Part {
     JButton button_L;
     JButton button_R;
     Image_Changer img;
     AnimeTitle_Changer titleChanger;
+    Popularity_Changer popularityChanger;
 
     /**
      * Creates buttons and image panels
@@ -74,8 +78,8 @@ public class Game_Part {
         JPanel leftAnimePopularityPanel = new JPanel();
         JLabel rightAnimePopularity = new JLabel();
         JLabel leftAnimePopularity = new JLabel();
-        leftAnimePopularityPanel.setBounds(207, 125, 20, 100);
-        rightAnimePopularityPanel.setBounds(207, 525, 20, 100);
+        leftAnimePopularityPanel.setBounds(10, 168, 100, 100);
+        rightAnimePopularityPanel.setBounds(640, 168, 100, 100);
 
         leftAnimePopularityPanel.add(leftAnimePopularity);
         rightAnimePopularityPanel.add(rightAnimePopularity);
@@ -93,6 +97,7 @@ public class Game_Part {
         main_game_page.add(leftAnimePopularityPanel);
         main_game_page.add(rightAnimePopularityPanel);
         titleChanger = new AnimeTitle_Changer(aniL_text, aniR_text, result);
+        popularityChanger = new Popularity_Changer(leftAnimePopularity, rightAnimePopularity);
         Instruction_Changer.change_instruction();
         // AnimeTitle_Changer.changeAnimeTitle();
     }
@@ -111,5 +116,9 @@ public class Game_Part {
 
     public AnimeTitle_Changer getTitleChanger() {
         return titleChanger;
+    }
+
+    public Popularity_Changer getPopularityChanger() {
+        return popularityChanger;
     }
 }
