@@ -12,6 +12,7 @@ import Frontend.utility.Instruction_Changer;
 
 public class Instruction {
     Instruction_Changer instructionChanger;
+    JButton reset_button;
 
     /**
      * Shows the instruction
@@ -52,11 +53,18 @@ public class Instruction {
         main_game_page.add(diff_panel);
 
         // * Create Reset Button
+        reset_button = new JButton("Reset");
+        reset_button.setBounds(10, 40, 100, 20);
+        main_game_page.add(reset_button);
 
         instructionChanger = new Instruction_Changer(instruction_text, diff_text);
     }
 
     public Instruction_Changer getInstructionChanger() {
         return instructionChanger;
+    }
+
+    public JButton getResetButton() {
+        return reset_button;
     }
 }
