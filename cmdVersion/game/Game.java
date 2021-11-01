@@ -391,9 +391,7 @@ public class Game {
         System.out.println("About to initialize the game");
         this.generateQuestion();
 
-        this.displayQuestion();
-        this.displayStats();
-        this.displayLifeControl();
+        this.displayNewRound();
         currentGameState = GAME_STATE_ANSWERING;
     }
 
@@ -418,9 +416,7 @@ public class Game {
             System.out.println("GUI set background color: White/Grey");
             this.generateQuestion();
 
-            this.displayQuestion();
-            this.displayStats();
-            this.displayLifeControl();
+            this.displayNewRound();
             currentGameState = GAME_STATE_ANSWERING;
         }
     }
