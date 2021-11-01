@@ -375,6 +375,13 @@ public class Game {
 
     }
 
+    // This function is a facade for updating the game to a new "round" so the user can answer the question
+    private void displayNewRound(){
+        this.displayQuestion();
+        this.displayStats();
+        this.displayLifeControl();
+    }
+
     // Interact-able methods or buttons
 
     public void initializeGame(){
