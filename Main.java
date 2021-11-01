@@ -29,6 +29,7 @@ public class Main {
 
                     gui.setStreak("f");
                     gui.updateScoreboard();
+
                 }
             });
 
