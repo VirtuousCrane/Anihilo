@@ -34,6 +34,12 @@ public class Main {
                 }
             });
 
+            gui.setResetButtonCallback(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    System.out.println("Never gonna give you up");
+                }
+            });
+
             gui.start();
         } catch (Exception e) {
             System.out.println(e.toString());

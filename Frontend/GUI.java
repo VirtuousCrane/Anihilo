@@ -7,6 +7,7 @@ import Frontend.main_menu.Main_Menu_Page;
 import Frontend.utility.Image_Changer;
 import Frontend.utility.AnimeTitle_Changer;
 import Frontend.utility.Score_Changer;
+import Frontend.utility.Life_Changer;
 import Frontend.utility.Instruction_Changer;
 import Frontend.utility.Page_Changer;
 
@@ -23,8 +24,10 @@ public class GUI extends Main_GUI {
     Game_Part gamePart;
     Image_Changer img;
     Score_Changer scoreChanger;
+    Life_Changer lifeChanger;
     Instruction_Changer instructionChanger;
     JButton leftButton, rightButton;
+    JButton resetButton;
     AnimeTitle_Changer titleChanger;
 
     private GUI() throws Exception {
@@ -33,8 +36,10 @@ public class GUI extends Main_GUI {
         mainMenu = getMainMenuPage();
         instructionChanger = mainGame.getInstructionChanger();
         scoreChanger = mainGame.getScoreChanger();
+        lifeChanger = mainGame.getLifeChanger();
         gamePart = mainGame.getGamePart();
         img = gamePart.getImageChanger();
+        resetButton = mainGame.getResetButton();
         leftButton = gamePart.getLeftButton();
         rightButton = gamePart.getRightButton();
         titleChanger = gamePart.getTitleChanger();
@@ -63,6 +68,15 @@ public class GUI extends Main_GUI {
      */
     public void setRightAnimeButtonCallback(ActionListener callback) {
         rightButton.addActionListener(callback);
+    }
+
+    /**
+     * Sets the callback function of the reset button
+     *
+     * @param callback The callback function
+     */
+    public void setResetButtonCallback(ActionListener callback) {
+        resetButton.addActionListener(callback);
     }
 
     /**
