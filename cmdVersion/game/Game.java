@@ -257,6 +257,8 @@ public class Game {
 
             gui.setDifficultyText(currentQuestion.getDifficulty()); // This doesn't need update apparently
 
+            gui.setResultText("");
+            gui.updateResultText();
 
         } else { // Access to GUI has failed
 
@@ -268,6 +270,7 @@ public class Game {
             System.out.println("Update the rightAnimeTitle to: " + currentQuestion.getRightAnime().get_name());
             System.out.println("Update GUI questionDifficultyTextBox to: " + currentQuestion.getDifficulty());
             System.out.println("Update GUI questionControlTypeTextBox to: " + currentQuestion.getType());
+            System.out.println("Update GUI resultTextBox/Label to: (Empty string)");
         }
 
     }
