@@ -318,6 +318,32 @@ public class GUI extends Main_GUI {
     }
 
     /**
+     * Sets the text of the life label without changing the GUI.
+     *
+     * @param lifeText The text of the life label
+     */
+    public void setLife(String lifeText) {
+        lifeChanger.set_life(lifeText);
+    }
+
+    /**
+     * Changes the label of life in the GUI
+     */
+    public void updateLife() {
+        lifeChanger.change_scoreBoard();
+    }
+
+    /**
+     * Sets and updates the life text in the GUI.
+     *
+     * @param lifeText The text of the life label
+     */
+    public void setAndUpdateLife(String lifeText) {
+        lifeChanger.set_life(lifeText);
+        lifeChanger.change_scoreBoard();
+    }
+
+    /**
      * Sets and updates the instruction text.
      *
      * @param instruction The instruction text.
