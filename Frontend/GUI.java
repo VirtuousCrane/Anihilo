@@ -7,6 +7,7 @@ import Frontend.main_menu.Main_Menu_Page;
 import Frontend.utility.Image_Changer;
 import Frontend.utility.AnimeTitle_Changer;
 import Frontend.utility.Score_Changer;
+import Frontend.utility.Life_Changer;
 import Frontend.utility.Instruction_Changer;
 import Frontend.utility.Page_Changer;
 
@@ -23,8 +24,10 @@ public class GUI extends Main_GUI {
     Game_Part gamePart;
     Image_Changer img;
     Score_Changer scoreChanger;
+    Life_Changer lifeChanger;
     Instruction_Changer instructionChanger;
     JButton leftButton, rightButton;
+    JButton resetButton;
     AnimeTitle_Changer titleChanger;
 
     private GUI() throws Exception {
@@ -33,8 +36,10 @@ public class GUI extends Main_GUI {
         mainMenu = getMainMenuPage();
         instructionChanger = mainGame.getInstructionChanger();
         scoreChanger = mainGame.getScoreChanger();
+        lifeChanger = mainGame.getLifeChanger();
         gamePart = mainGame.getGamePart();
         img = gamePart.getImageChanger();
+        resetButton = mainGame.getResetButton();
         leftButton = gamePart.getLeftButton();
         rightButton = gamePart.getRightButton();
         titleChanger = gamePart.getTitleChanger();
@@ -63,6 +68,15 @@ public class GUI extends Main_GUI {
      */
     public void setRightAnimeButtonCallback(ActionListener callback) {
         rightButton.addActionListener(callback);
+    }
+
+    /**
+     * Sets the callback function of the reset button
+     *
+     * @param callback The callback function
+     */
+    public void setResetButtonCallback(ActionListener callback) {
+        resetButton.addActionListener(callback);
     }
 
     /**
@@ -259,6 +273,7 @@ public class GUI extends Main_GUI {
         scoreChanger.set_score(s);
     }
 
+
     /**
      * Sets the accuracy without updating the scoreboard. See
      * updateScoreboard(String, String, String) for changing the accuracy + updating
@@ -282,6 +297,17 @@ public class GUI extends Main_GUI {
     }
 
     /**
+     * Sets the streak without updating the scoreboard. See
+     * updateScoreboard(String, String, String) for changing the accuracy + updating
+     * the scoreboard or updateScoreboard() for just updating the scoreboard.
+     *
+     * @param s The accuracy of the player
+     */
+     public void setStreak(String s) {
+        scoreChanger.set_streak(s);
+     }
+
+    /**
      * Updates the scoreboard
      */
     public void updateScoreboard() {
@@ -296,11 +322,38 @@ public class GUI extends Main_GUI {
      * @param accuracy The accuracy of the player.
      * @param guess    The guess of the player.
      */
-    public void updateScoreboard(String score, String accuracy, String guess) {
+    public void updateScoreboard(String score, String accuracy, String guess, String streak) {
         setScore(score);
         setAccuracy(accuracy);
         setGuess(guess);
+        setStreak(streak);
         updateScoreboard();
+    }
+
+    /**
+     * Sets the text of the life label without changing the GUI.
+     *
+     * @param lifeText The text of the life label
+     */
+    public void setLife(String lifeText) {
+        lifeChanger.set_life(lifeText);
+    }
+
+    /**
+     * Changes the label of life in the GUI
+     */
+    public void updateLife() {
+        lifeChanger.change_scoreBoard();
+    }
+
+    /**
+     * Sets and updates the life text in the GUI.
+     *
+     * @param lifeText The text of the life label
+     */
+    public void setAndUpdateLife(String lifeText) {
+        lifeChanger.set_life(lifeText);
+        lifeChanger.change_scoreBoard();
     }
 
     /**
