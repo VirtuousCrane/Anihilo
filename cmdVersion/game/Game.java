@@ -379,7 +379,8 @@ public class Game {
     private void displayLifeControl(){
         GUI gui = getGUIAccess();
         if (gui != null) {
-            System.out.println("GUI missing function to display the life control in game.displayLifeControl()");
+            gui.setLife(lifeControl.toString());
+            gui.updateLife();
         } else {
             System.out.println("Update GUI lifeControlTextBox to: " + lifeControl.toString());
         }
