@@ -207,7 +207,6 @@ public class Game {
             System.out.println("User press buttonAnimeImg at wrong game state; currentGameState(IntCode): " + currentGameState + " answer(IntCode): " + userAnswer);
             return;
         }
-
         currentGameState = GAME_STATE_WAITING;
 
         if(gameStats.getQuestion().checkAnswer(userAnswer)){
@@ -221,6 +220,18 @@ public class Game {
         this.displayAnswer();
 
         currentGameState = GAME_STATE_LOOK_AT_RESULT;
+
+
+        if (! lifeControl.isAlive()){ // Player has met the losing condition
+            currentGameState = GAME_STATE_OVER;
+            this.displayGameOver();
+        }else { // Player keep playing
+            currentGameState = GAME_STATE_WAITING;
+            this.generateQuestion();
+
+            this.displayNewRound();
+            currentGameState = GAME_STATE_ANSWERING;
+        }
     }
 
     // Allow the access to the GUI dealing with the GUI exception, return null if there is continuous problem
@@ -405,6 +416,7 @@ public class Game {
 
     // This is the pause in between question
     // To allow user to see whether they answer correctly
+    @Deprecated
     public void clickButtonNextQuestion(){
         if(! currentGameState.equals(GAME_STATE_LOOK_AT_RESULT)){
             System.out.println("User clicked buttonNextQuestion at wrong game state GameState(IntCode): " + currentGameState);
@@ -413,7 +425,6 @@ public class Game {
             this.displayGameOver();
         }else { // Player keep playing
             currentGameState = GAME_STATE_WAITING;
-            System.out.println("GUI set background color: White/Grey");
             this.generateQuestion();
 
             this.displayNewRound();
