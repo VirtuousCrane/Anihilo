@@ -3,13 +3,9 @@ package cmdVersion.game.lifeControl;
 import cmdVersion.game.stats.GameStats;
 
 public class CountDownLifeControl extends LifeControl {
-
+    
     static final Integer DEFAULT_AMOUNT_OF_LIVES = 3;
     int remainingLives = DEFAULT_AMOUNT_OF_LIVES;
-
-    public CountDownLifeControl(){
-
-    }
     
     @Override
     public boolean isAlive() {
@@ -20,7 +16,7 @@ public class CountDownLifeControl extends LifeControl {
     public void update(GameStats gameStats) {
         if(gameStats.isLatestQuestionAnsweredCorrect()){
             remainingLives--;
-        }
+        } 
     }
 
     @Override
