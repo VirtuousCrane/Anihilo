@@ -224,6 +224,7 @@ public class Game {
 
         if (! lifeControl.isAlive()){ // Player has met the losing condition
             currentGameState = GAME_STATE_OVER;
+            this.displayNewRound();
             this.displayGameOver();
         }else { // Player keep playing
             currentGameState = GAME_STATE_WAITING;
