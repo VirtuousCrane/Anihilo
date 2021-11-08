@@ -326,7 +326,7 @@ public class Game {
         GUI gui = getGUIAccess();
 
         if(gui != null){
-            System.out.println("displayConnectionErrorPopUp is missing the GUI needed as of 2021 Oct 30");
+            gui.showDisconnectPopup();
         } else {
             System.out.println("Update GUI to show a message box telling user there is internet problem");
             System.out.println("Pop waiting for user to click OK after to fix internet problem (Press 1 and enter to continue): ");
