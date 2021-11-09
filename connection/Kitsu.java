@@ -56,13 +56,7 @@ public class Kitsu {
         }
 
         HashMap<String, String> retMap = JSON.parse (content.toString());
-/*        try {
-            Thread.sleep (500);
-        } catch (InterruptedException ex) {
-            System.out.println (ex);
-        }
-*/
-        return retMap;
 
+        return retMap;
     }
 }

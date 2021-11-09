@@ -168,7 +168,9 @@ public class Game {
         frame.dispose();
     }
 
-    // Generate question inside the game stats
+    /**
+     * Generate question inside the game stats
+     */
     private void generateQuestion(){
         Scanner input = new Scanner(System.in);
         String questionDifficulty = questionControl.getQuestionDifficulty();
@@ -186,14 +188,18 @@ public class Game {
         System.out.println("generateQuestion() generated a question");
     }
 
-    // Update the control object based on the game stats
+    /**
+     * Update the control object based on the game stats
+     */
     private void updateControlObject(){
         this.questionControl.update(this.gameStats);
         this.lifeControl.update(this.gameStats);
         this.scoreControl.update(this.gameStats);
     }
 
-    // Reset the game back to the initial state
+    /**
+     * Reset the game back to the initial state
+     */
     private void resetGame(){
         lifeControl.reset();
         questionControl.reset();
@@ -201,7 +207,10 @@ public class Game {
         gameStats.reset();
     }
 
-    // Answer the question,update control object, tell user the answer, update current game state
+    /**
+     * Answer the question,update control object, tell user the answer,
+     * update current game state
+     */
     private void answerQuestion(Integer userAnswer){
         if(! currentGameState.equals(GAME_STATE_ANSWERING)){
             System.out.println("User press buttonAnimeImg at wrong game state; currentGameState(IntCode): " + currentGameState + " answer(IntCode): " + userAnswer);
@@ -235,7 +244,12 @@ public class Game {
         }
     }
 
-    // Allow the access to the GUI dealing with the GUI exception, return null if there is continuous problem
+    /**
+     * Allow the access to the GUI dealing with the GUI exception,
+     * return null if there is continuous problem
+     *
+     * @return GUI A GUI Object. Can return null if not exist.
+     */
     private GUI getGUIAccess(){
         boolean receivedGUIAccess = false;
         GUI output = null;
@@ -250,7 +264,9 @@ public class Game {
         return output;
     }
 
-    // This function would have its print statement replaced the by GUI function like GUI.setLeftAnimeImage()
+    /**
+     * Displays the question on the GUI.
+     */
     private void displayQuestion(){
         Question currentQuestion = gameStats.getQuestion();
         GUI gui = getGUIAccess();
@@ -284,7 +300,9 @@ public class Game {
 
     }
 
-    // This function would have its print statement replaced by the GUI function like GUI.setAccuracy()
+    /**
+     * Displays the player's stats on the GUI
+     */
     private void displayStats(){
         GUI gui = getGUIAccess();
 
@@ -300,7 +318,9 @@ public class Game {
         }
     }
 
-    // This function would have its print statement replaced by the GUI function like GUI.setGameBackGround(Color.RED)
+    /**
+     * Displays whether the user answered correctly on the GUI
+     */
     private void displayUserAnswerCorrectOrWrong(){
         GUI gui = getGUIAccess();
 
@@ -322,6 +342,9 @@ public class Game {
         }
     }
 
+    /**
+     * Shows the Connection Error popup
+     */
     private void displayConnectionErrorPopUp(){
         GUI gui = getGUIAccess();
 
@@ -335,6 +358,9 @@ public class Game {
         }
     }
 
+    /**
+     * Displays that the game is over
+     */
     private void displayGameOver(){
         GUI gui = getGUIAccess();
 
@@ -360,8 +386,10 @@ public class Game {
 
     }
 
-    // This will update the GUI with info relevant question for the anime
-    // Ex: If Qn ask about which anime came out first, this will update with leftAnime 2001-02-03 and rightAnime 2005-07-16
+    /** This will update the GUI with info relevant question for the anime
+     * Ex: If Qn ask about which anime came out first, this will update with
+     * leftAnime 2001-02-03 and rightAnime 2005-07-16
+     */
     private void displayAnswer(){
         GUI gui = getGUIAccess();
         if(gui != null){
@@ -375,8 +403,10 @@ public class Game {
 
     }
 
-    // Display the lifeControl system which show the user how far they are from reaching game over
-    // Basically it show the stats relating when will the user lose, but we have many different implementation
+    /** Display the lifeControl system which show the user how far they are
+     * from reaching game over. Basically it show the stats relating when
+     * will the user lose, but we have many different implementation
+     */
     private void displayLifeControl(){
         GUI gui = getGUIAccess();
         if (gui != null) {
@@ -388,15 +418,18 @@ public class Game {
 
     }
 
-    // This function is a facade for updating the game to a new "round" so the user can answer the question
+    /** A facade for updating the game to a new "round" so
+     * the user can answer the question
+     */
     private void displayNewRound(){
         this.displayQuestion();
         this.displayStats();
         this.displayLifeControl();
     }
 
-    // Interact-able methods or buttons
-
+    /**
+     * Initializes the game
+     */
     public void initializeGame(){
         System.out.println("About to initialize the game");
         this.generateQuestion();
@@ -405,16 +438,23 @@ public class Game {
         currentGameState = GAME_STATE_ANSWERING;
     }
 
+    /**
+     * The left Anime button's callback
+     */
     public void clickButtonLeftAnimeImg(){
         this.answerQuestion(Question.ANSWER_LEFT);
     }
 
+    /**
+     * The right Anime button's callback
+     */
     public void clickButtonRightAnimeImg(){
         this.answerQuestion(Question.ANSWER_RIGHT);
     }
 
-    // This is the pause in between question
-    // To allow user to see whether they answer correctly
+    /** This is the pause in between question
+     * To allow user to see whether they answer correctly
+     */
     @Deprecated
     public void clickButtonNextQuestion(){
         if(! currentGameState.equals(GAME_STATE_LOOK_AT_RESULT)){
@@ -431,11 +471,16 @@ public class Game {
         }
     }
 
-    // Clicked the button
-    public void clickButtonBackToPreviousPage(){
+    /**
+     * The callback of the previous page button.
+     * THE BUTTON NO LONGER EXISTS.
+     */
+    @Deprecated
+    public void clickButtonBackToPreviousPage() {}
 
-    }
-
+    /**
+     * The callback of the Reset Button
+     */
     public void clickButtonResetGame(){
         currentGameState = GAME_STATE_WAITING;
         this.resetGame();

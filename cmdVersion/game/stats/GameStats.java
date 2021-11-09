@@ -46,9 +46,9 @@ public class GameStats {
     // Setter END
 
     /**
-    * Updates various parameters in the case that the
-    * player answered the question correctly
-    */
+     * Updates various parameters in the case that the
+     * player answered the question correctly
+     */
     public void answeredCorrect(){
         this.latestQuestionAnsweredCorrect = true;
         this.guessAmount++;
@@ -58,9 +58,9 @@ public class GameStats {
     }
 
     /**
-    * Updates various parameters in the case that the
-    * player answered the question incorrectly
-    */
+     * Updates various parameters in the case that the
+     * player answered the question incorrectly
+     */
     public void answeredWrong(){
         this.latestQuestionAnsweredCorrect = false;
         this.guessAmount++;
@@ -69,10 +69,10 @@ public class GameStats {
     }
 
     /**
-    * Returns the information String
-    *
-    * @return String The information String
-    */
+     * Returns the information String
+     *
+     * @return String The information String
+     */
     @Override
     public String toString() {
         return "GameStats\n" +
@@ -85,7 +85,9 @@ public class GameStats {
                 ;
     }
 
-    // Reset to initial state
+    /**
+     * Resets the player to the initial state
+     */
     public void reset(){
         guessAmount = 0;
         guessCorrect = 0;

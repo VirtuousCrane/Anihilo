@@ -102,11 +102,21 @@ public class QuestionMaker {
         return internalMakeQuestion(positionalDifference, generatedComparator, generatedPrompt, difficulty, inType);
     }
 
-    // Algorithm for generating question based on difficulty
-    // Difficulty is based on the positionalDifference of the list
-    // For example if we have a list of 100 anime listed by rank
-    // We pick a random number then by random chance move forward/backward by positionalDifference% of the list
-    // The two anime will then be selected for making question object
+    /**
+     * Algorithm for generating question based on difficulty
+     * Difficulty is based on the positionalDifference of the list
+     * For example if we have a list of 100 anime listed by rank
+     * We pick a random number then by random chance move forward/backward by positionalDifference% of the list
+     * The two anime will then be selected for making question object
+     *
+     * @param positionalDifference The positional difference of the anime on the list
+     * @param comparator The comparator for Animes
+     * @param prompt The question's prompt
+     * @param difficulty The difficulty of the question
+     * @param type The type of the question
+     *
+     * @return Question The Question object
+     */
     public Question internalMakeQuestion(double positionalDifference, Comparator<Anime> comparator, String prompt, String difficulty, String type) throws ConnectionError {
 
         // Generate anime list and sort them
@@ -162,12 +172,12 @@ public class QuestionMaker {
 
 
     /**
-    * Downloads the image of the anime if it does not exist and
-    * returns the absolute path to the image.
-    *
-    * @param inAnime The Anime to download the image for
-    * @return String The absolute path of the image
-    */
+     * Downloads the image of the anime if it does not exist and
+     * returns the absolute path to the image.
+     *
+     * @param inAnime The Anime to download the image for
+     * @return String The absolute path of the image
+     */
     public String generateAnimeImagePath(Anime inAnime){
 
         String animeImgPath = animeImgFolderPath + inAnime.get_kitsu_id() + animeImgFileExtension;
@@ -181,8 +191,8 @@ public class QuestionMaker {
     }
 
     /**
-    * Generates a random number list
-    */
+     * Generates a random number list
+     */
     public void generateRandomNumberList(){
         for(int i = 1; i < MAX_RANDOM_NUMBER_SIZE; i++){
             this.randomNumberList.add(i);
@@ -191,28 +201,28 @@ public class QuestionMaker {
     }
 
     /**
-    * Gets a random number from the random number list
-    *
-    * @return int A random number from the list
-    */
+     * Gets a random number from the random number list
+     *
+     * @return int A random number from the list
+     */
     public int getRandomNumberFromList(){
         return this.randomNumberList.remove(0);
     }
 
     /**
-    * Sorts the Anime list.
-    *
-    * @param inComparator The comparator to use
-    */
+     * Sorts the Anime list.
+     *
+     * @param inComparator The comparator to use
+     */
     public void sortBy(Comparator<Anime> inComparator){
         animeList.sort(inComparator);
     }
 
     /**
-    * Fills up the Anime list
-    *
-    * @throws ConnectionError
-    */
+     * Fills up the Anime list
+     *
+     * @throws ConnectionError
+     */
     public void fillAnimeList() throws ConnectionError {
         int amountOfAnimeToAdd = MAX_ANIME_SIZE - this.animeList.size();
 
@@ -223,11 +233,12 @@ public class QuestionMaker {
     }
 
     /**
-    * Returns an Anime Comparator
-    *
-    * @param inType The question type
-    * @return Comparator<Anime>
-    */
+     * Returns an Anime Comparator
+     *
+     * @param inType The question type
+     *
+     * @return Comparator<Anime>
+     */
     public static Comparator<Anime> getComparator(String inType){
         //Comparator<Anime> ratingRankComp = (a1,a2) -> a2.get_rating_rank()-a1.get_rating_rank(); // Positive when a1 has better rank than a2
         //Comparator<Anime> popularityRankComp = (a1,a2) -> a2.get_rating_rank()-a1.get_rating_rank(); // Positive when a1 has better popularity rank than a2
@@ -247,11 +258,12 @@ public class QuestionMaker {
     }
 
     /**
-    * Gets the prompt for the user
-    *
-    * @param inType The type of question
-    * @return String The prompt
-    */
+     * Gets the prompt for the user
+     *
+     * @param inType The type of question
+     *
+     * @return String The prompt
+     */
     public static String getPrompt(String inType){
 
         if(inType.equalsIgnoreCase(questionTypes[0])){

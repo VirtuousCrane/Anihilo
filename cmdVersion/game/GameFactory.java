@@ -12,6 +12,11 @@ import connection.ConnectionError;
 public class GameFactory {
     public static final String[] gameModes = {"Classic"};
 
+    /**
+     * Creates a game object
+     *
+     * @return A Game object
+     */
     public static Game createGame(String gameModeName) {
 
         QuestionControl questionControl;

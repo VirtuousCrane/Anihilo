@@ -43,6 +43,9 @@ public class Hardcore extends LifeControl {
         return output;
     }
 
+    /**
+     * Resets the status of the player
+     */
     @Override
     public void reset() {
         isDead = false;
