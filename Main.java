@@ -10,6 +10,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class Main {
+    /**
+     * Executes the main program
+     *
+     * @param args Command line arguments. NOT USED.
+     */
     public static void main(String[] args) {
         try {
             GUI gui = GUI.getInstance();
@@ -22,12 +27,6 @@ public class Main {
 
             Game game = GameFactory.createGame(GameFactory.gameModes[0]);
             game.initializeGame();
-/*            gui.setLeftAnimeButtonCallback(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    game.clickButtonLeftAnimeImg();
-
-                }
-            });*/
 
             gui.setLeftAnimeButtonMouseCallback(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e) {
@@ -39,11 +38,6 @@ public class Main {
                 }
             });
 
-/*            gui.setRightAnimeButtonCallback(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    game.clickButtonRightAnimeImg();
-                }
-            });*/
 
             gui.setRightAnimeButtonMouseCallback(new MouseAdapter() {
                 public void mouseClicked(MouseEvent e) {

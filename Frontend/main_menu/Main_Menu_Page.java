@@ -19,13 +19,13 @@ public class Main_Menu_Page {
         mainMenu = Main_Menu(main_page, page, main);
     }
     /**
-    * Constructs the main menu
-    *
-    * @param main_page The main page
-    * @param page      The page to be switched to
-    *
-    * @return JPanel The main menu
-    */
+     * Constructs the main menu
+     *
+     * @param main_page The main page
+     * @param page      The page to be switched to
+     *
+     * @return JPanel The main menu
+     */
     public JPanel Main_Menu(JPanel main_page, CardLayout page, JFrame main) {
 
         JPanel menu = new JPanel();
@@ -42,13 +42,6 @@ public class Main_Menu_Page {
 
         // Create a Button
         start_game.setBounds(225, 230, 300, 30);
-/*        start_game.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                Page_Changer.set_page("page2");
-                Page_Changer.Change(main_page, page);
-            }
-        });
-*/
         quit_game.setBounds(225, 300, 300, 30);
         quit_game.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -65,10 +58,20 @@ public class Main_Menu_Page {
         return menu;
     }
 
+    /**
+     * Returns the main menu
+     *
+     * @return JPanel The main menu
+     */
     public JPanel getMainMenu() {
         return mainMenu;
     }
 
+    /**
+     * Returns the start game button
+     *
+     * @return JButton The start game button
+     */
     public JButton getStartGameButton() {
         return start_game;
     }

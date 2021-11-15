@@ -11,8 +11,8 @@ public class Menu {
     public static final int EXIT = 0;
 
     /**
-    * Displays the main menu
-    */
+     * Displays the main menu
+     */
     @Deprecated
     public void showMainMenu() {
         Scanner input = new Scanner(System.in);
@@ -44,8 +44,8 @@ public class Menu {
     } // END OF showMainMenu()
 
     /**
-    * Lets the user select the game mode
-    */
+     * Lets the user select the game mode
+     */
     @Deprecated
     public void showSelectGameMode(){
         Scanner input = new Scanner(System.in);
@@ -58,9 +58,6 @@ public class Menu {
             System.out.println("Select game mode page");
             System.out.println("0. Exit");
             System.out.println("1. " + GameFactory.gameModes[0]);
-//            System.out.println("2. Suddent Death");
-//            System.out.println("3. RNG");
-//            System.out.println("4. Practice");
             System.out.println("Select your option: ");
             userInput = Integer.parseInt(input.nextLine()); // GUI.getUserInputSelectGameMode()
 
@@ -75,18 +72,6 @@ public class Menu {
                     System.out.println("Prepare to move to game age with classic game");
                     gameModeChoice = GameFactory.gameModes[0];
                 }
-//                case 2 -> {
-//                    System.out.println("User have selected option 2: Sudden death");
-//                    System.out.println("Prepare to move the game page with sudden death game");
-//                }
-//                case 3 -> {
-//                    System.out.println("User have selection option 3: RNG");
-//                    System.out.println("Prepare to move to game page with RNG game");
-//                }
-//                case 4 -> {
-//                    System.out.println("User have selected option 4: Practice");
-//                    System.out.println("Prepare to move to game page with practice game");
-//                }
             }
 
             if(userInput == EXIT){
@@ -102,8 +87,8 @@ public class Menu {
     } // END OF selectionGameMode()
 
     /**
-    * Handles the launching and ending of the game
-    */
+     * Handles the launching and ending of the game
+     */
     @Deprecated
     public void showGamePage(Game inGame) {
         Scanner input = new Scanner(System.in);

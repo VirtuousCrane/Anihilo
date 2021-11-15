@@ -48,24 +48,46 @@ public class Main_GUI {
 
     }
 
-    // public static void main(String[] args) throws Exception {
+    /**
+     * Starts the GUI of the main page
+     */
     public void start() {
         // * make JFrame visible (need to be put last)
         main_page.setVisible(true);
     }
 
+    /**
+     * Returns the main game page
+     *
+     * @return Main_Game_Page The main game page
+     */
     public Main_Game_Page getMainGamePage() {
         return main_game;
     }
 
+    /**
+     * Returns the main menu page
+     *
+     * @return Main_Menu_Page The main menu page
+     */
     public Main_Menu_Page getMainMenuPage() {
         return main_menu;
     }
 
+    /**
+     * Returnss the page deck
+     *
+     * @return JPanel The page deck
+     */
     public JPanel getDeck() {
         return deck;
     }
 
+    /**
+     * Returns the card layout
+     *
+     * @return CardLayout The card layout
+     */
     public CardLayout getCardLayoutPage() {
         return page;
     }
