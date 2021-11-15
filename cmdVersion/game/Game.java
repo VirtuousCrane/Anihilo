@@ -432,10 +432,13 @@ public class Game {
      * Initializes the game
      */
     public void initializeGame(){
+        GUI gui = getGUIAccess();
         System.out.println("About to initialize the game");
         this.generateQuestion();
-
+ 
         this.displayNewRound();
+        gui.setResultText("or");
+        gui.updateResultText();
         currentGameState = GAME_STATE_ANSWERING;
     }
 
