@@ -27,7 +27,7 @@ public class Main_GUI {
         main_page.setLayout(null);
 
         // * set Title
-        main_page.setTitle("Higher or Lower");
+        main_page.setTitle("Higher & Lower");
 
         // * Instruction
         page = new CardLayout();
