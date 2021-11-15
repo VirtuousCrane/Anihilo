@@ -310,6 +310,7 @@ public class Game {
             gui.setGuess(String.valueOf(gameStats.getGuessAmount()));
             gui.setAccuracy(String.valueOf(gameStats.getGuessAccuracy()));
             gui.setScore(String.valueOf(scoreControl.calculateScore()));
+            gui.setStreak(String.valueOf(gameStats.getGuessCorrectStreak()));
             gui.updateScoreboard();
         } else {
             System.out.println("Update guess to: " + gameStats.getGuessAmount());
